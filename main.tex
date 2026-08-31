@@ -1,0 +1,196 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{PHYC40870 Detector Lab}
+\author{Morgan Fraser}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\subsection{Module Overview}
+
+The Space Detector Laboratory is a 10 credit core module for the MSc Space Science \& Technology course. This is a lab-based module with lab sessions scheduled for Mondays and Tuesdays from 14:00-17:00. You will be expected to do independent work, including (but not limited to) preparation, reading, coding, and report writing outside of these hours. 
+
+This module is intended to instill a working, functional understanding of detector systems and imaging technology, as well as provide practical experience with ``CubeSat`` and nano-satellite systems. These skills will prepare you for both the Space Mission Design field trip, and the Satellite Subsystems lab in Semester 2. Additionally, we will introduce you to some essential coding skills in the Python programming language, which will further aid you later in your studies.
+
+There are three primary components of this module.
+
+\begin{itemize}
+    \item Gamma-ray Detectors in Space \& Astronomy
+    \item CCDs \& Imaging Techniques
+    \item ``AmSat`` (\textbf{Am}ateur \textbf{Sat}ellite) and CubeSat systems
+\end{itemize}
+
+\section{Python \& Github}
+To be written
+\section{Gamma-ray Detectors}
+To be written
+
+\section{CCDs}
+To be written
+
+\section{AmSat}
+
+\subsection{Connecting to the AmSat}
+
+\begin{enumerate}
+    \item Introduction to Python \& Github: 6 sessions, discuss responsible use of ChatGPT
+    \item Gamma-ray detectors: 1 lecture, 6 labs, 1 close-out with group work (merge results, discuss pipelines)
+\end{enumerate}
+
+\begin{itemize}
+
+    \item W1 Mon 8th Sept
+    \begin{itemize}
+        \item Python
+    \end{itemize}
+
+    \item Tues 9th Sept
+    \begin{itemize}
+        \item Python
+    \end{itemize}
+
+    \item W2 Mon 15 Sept
+    \begin{itemize}
+        \item Python
+    \end{itemize}
+
+    \item Tues 16 Sept
+    \begin{itemize}
+        \item Python - Github
+    \end{itemize}
+
+    \item W3 Mon 22 Sept
+    \begin{itemize}
+        \item Python - Virtual environments / ChatGPT
+    \end{itemize}
+
+    \item Tues 23 Sept
+    \begin{itemize}
+        \item Python - ChatGPT
+    \end{itemize}
+
+    \item W4 Mon 29 Sept
+    \begin{itemize}
+        \item Lecture:
+        \begin{itemize}
+            \item Intro to high energy detectors
+            \item Show students data analysis tools (e.g. fitting a gaussian)
+            \item Discuss writing pipeline vs. one off script
+        \end{itemize}
+    \end{itemize}
+
+    \item Tues 30 Sept
+    \begin{itemize}
+        \item Detector 1 (either Solid State or Scintillator)
+        \begin{itemize}
+            \item Code to do calibration curve (channel to wavelength)
+            \item Code to get energy resolution (FWHM of photopeaks) and make a plot as a function of energy
+            \item Code to get efficiency, absolute, intrinsic plotted as a function of energy
+            \item Off axis response (change in FWHM and peak height)
+        \end{itemize}
+    \end{itemize}
+
+    \item W5 Mon 6 Oct
+    \begin{itemize}
+        \item Detector 1
+    \end{itemize}
+
+    \item Tues 7 Oct
+    \begin{itemize}
+        \item Detector 1
+    \end{itemize}
+
+    \item W6 Mon 13
+    \begin{itemize}
+        \item Detector 2
+    \end{itemize}
+
+    \item Tues 14
+    \begin{itemize}
+        \item Detector 2
+    \end{itemize}
+
+    \item W7 Mon 20
+    \begin{itemize}
+        \item Detector 2
+        \item Students hand in 10 joint report at end of week (Andrew will put together template). Will just show plots from previous weeks, but with \textit{discussion} and analysis. 1-2 pg decent introduction.
+    \end{itemize}
+
+    \item Tues 21
+    \begin{itemize}
+        \item Merge results from different groups. Students have to upload a file on Github with columns of E, R, sensitivity
+        \item Efficiency and resolution as a function of energy/wavelength
+        \item Discuss how pipeline and one off scripts worked
+        \item (Overall 20 marks for this section: 10 for joint report, 10 for code)
+    \end{itemize}
+
+    \item W8 Mon 27
+    \begin{itemize}
+        \item Public holiday
+    \end{itemize}
+
+    \item Tues 28
+    \begin{itemize}
+        \item CCD / detectors lecture - different detector technologies, optical, UV, NIR, SAR, mm
+        \item Filters, QE, calibration abs / relative, PSF, diffraction limit
+    \end{itemize}
+
+    \item W9 Mon 3 Nov
+    \begin{itemize}
+        \item HST data exercise
+        \item Detecting cosmic rays (single image, median combining)
+        \item PSF modeling
+    \end{itemize}
+
+    \item Tues 4
+    \begin{itemize}
+        \item HST data exercise
+        \item Detecting cosmic rays (single image, median combining)
+        \item PSF modeling
+        \item (code to be submitted, 10 marks)
+    \end{itemize}
+
+    \item W10 Mon 10
+    \begin{itemize}
+        \item EO data from SENTINEL-2 (hyperspectral imaging)
+    \end{itemize}
+
+    \item Tues 11
+    \begin{itemize}
+        \item Continuation
+        \item (code to be submitted, 10 marks)
+    \end{itemize}
+
+    \item W11 Mon 17
+    \begin{itemize}
+        \item 3d printing part, assembly
+        \item SSH into AMSAT from desktop
+        \item Read off sensors (running scripts)
+    \end{itemize}
+
+    \item Tues 18
+    \begin{itemize}
+        \item Connect to AMSAT via WiFi
+        \item Get rotation rate - period analysis with Fourier
+        \item Get angular acceleration from onboard accelerometer - what is tolerance of turntables
+        \item (10 marks - 2 pg summary of what they did with key plots and numbers, critical commentary)
+    \end{itemize}
+
+    \item W12 Mon 24
+    \begin{itemize}
+        \item Fun activity with AMSAT - filters, etc? Students need to come up with something on their own
+    \end{itemize}
+
+    \item Tues 25
+    \begin{itemize}
+        \item Continuation of fun activity
+        \item (10 marks, \textless 5 pg report on what they did)
+    \end{itemize}
+
+\end{itemize}
+\end{document}
