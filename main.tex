@@ -1320,20 +1320,7 @@ Note that each module will have its own rules regarding the use of AI, and you s
 % \begin{tcolorbox}[sharp corners=all, colback=red!5,colframe=red!75!black,title=\textbf{TODO}]
 % %[width=\linewidth, sharp corners=all, colback=white!95!black]
 
-% It's difficult to tell what should and shouldn't be included sometimes, but this could be trimmed back a bit by including links to e.g. \href{https://sheffield-mps.github.io/PHY241/lectures/l06/}{these lecture notes on CCDs} for them to read separately so we don't need to give a full course on solid-state electronics and CCDs. I can package some of the coding stuff into the notebooks so we don't need to talk about them here, but there will be a lot going on that might make this section grow and grow and grow... With that in mind:
-% \begin{enumerate}
-%     \item 
-%         Do we want to make them write their own CR rejection routine? It's very complicated...
-%     \item 
-%         I think we were saying we wanted to include PSF stuff. I need to fit that in here somewhere. Do we expect them to use \texttt{photutils} or do their own naive implementation?
-%     \item 
-%         I also think I need to make more space by cutting back some things. It's difficult to tell what should and shouldn't be included sometimes!
-%     \item 
-%         Alternatively, I could be more brief in the summary and link them to If there's a publicly available UCD one I can dig up I could link to that instead. Either way I'm thinking a ``Further Reading'' list or something.
-% \end{enumerate}
-
-
-% \end{tcolorbox} 
+% check out the links: https://sheffield-mps.github.io/PHY241/lectures/l06/
 \section{Introduction}
 
 In the days of yore, astronomers relied solely on their eyes and artistic abilities to record their observations of the sky. 
@@ -1352,13 +1339,9 @@ Unfortunately, photographic plates and film are not much more efficient at proce
 
 Everything changed in the 1950s and 1960s when researchers at Bell Laboratories developed metal-oxide-semiconductor (MOS) technology, which laid the foundation for two groundbreaking devices in image sensing: the so-called ``charge-coupled device`` or CCD; and the complementary MOS or CMOS. CCDs proved incredibly efficient at capturing light over a broad wavelength range, which led to the wide-spread adoption of the technically across a variety of fields from biology to astronomy. Early on CMOS image sensors had quite poor performance compared to CCDs in terms of image quality (though they excelled in power efficiency), but in recent years major developments have led to CMOS technology (and others) actually surpassing CCDs in many applications. In the following discussion, we will explore the basic functionality and characteristics of CCDs and CMOS detectors, and explore their usage in the context of astronomy and space science.
 
-%Everything changed when Bell Laboratories created the so-called ``charge-coupled device'', or CCD, in the 1960s that ended up being incredibly efficient at capturing light over a broad wavelength range and exhibited linear behavior. This powerful discovery led to the wide-spread adoption of the CCD detector across a variety of fields from biology to astronomy, and it additionally became a staple in the every-day technology of digital cameras. In the following discussion, we will explore the basic functionality and characteristics of CCDs, and explore their usage in the context of physics and space science.
-
 \subsection{Detector Fundamentals}
 \label{subsec:det_fund}
-%\textbf{\Large Andrew needs to tidy this up}
 
-% \subsection{Why CCDs?}
 A detector, in our context, is any device that we place in an instrument or telescope that allows us to measure incident photons. These photons can be at any wavelength, and we choose the type of detector based on the energy range we wish to observe. We are generally interested in a few other characteristics as well, namely the \textbf{spectral response} of the detector and the \textbf{quantum efficiency} of the detector. The spectral response is like a sensitivity in that it tells us how effectively the detector is able to distinguish different colors (that is, light at different wavelengths), while the quantum efficiency tells us how good the detector is at converting absorbed photons into an electrical signal. We can express the responsivity of a detector by
 
 \begin{equation}
@@ -1372,8 +1355,6 @@ A detector, in our context, is any device that we place in an instrument or tele
 \end{equation}
 
 With semiconductor materials we often see silicon, though other elements can be used as well. Optical detectors feature a grid of photo-receptors called pixels that absorb light and produce a corresponding electrical current that is directly proportional to the energy of the absorbed light. CCDs and CMOS detectors are incredibly efficient -- better than 80\% in the peak response range -- and are responsive across the entire spectrum. A comparison of the responsivity and efficiency of a typical CCD and the average human eye can be seen in Figure~\ref{fig:qe-ccd-eye}.
-
-%Historically, optical and near-infrared (NIR) applications have relied on the CCD, which is generally a silicon semi-conductor (sometimes doped with another element) featuring a grid of photo-receptors called pixels that absorb light and produce a corresponding electrical current that is directly proportional to the energy of the absorbed light. CCDs are incredibly efficient -- better than 80\% in its peak response range\footnote{With clever manufacturing this can be as high as 95\%} -- and are responsive across the entire visible spectrum, making them ideal for observational astronomy. A comparison of the responsivity and efficiency of a typical CCD and the average human eye can be seen in Figure~\ref{fig:qe-ccd-eye}.%\footnote{There are numerous reasons why we care about the responsivity from a physics point of view, but for our purposes it is enough to simply say that a better spectral response results in more detailed information in an observation. 
 
 
 \begin{figure*}
@@ -1396,11 +1377,6 @@ With semiconductor materials we often see silicon, though other elements can be 
 How do CCDs and CMOS achieve such high efficiency? At the most fundamental level, %CCDs (and other detectors; we will see this later) 
 they exploit the photo-electric effect, where a material emits electrons after absorbing photons that exceed a threshold energy that we call the \textit{work function} of that material. This means we can keep track of both the energy and the amount of incident photons on a detector. By fabricating these detectors from semi-conductor materials, we can tailor the band gap of the detector so that it is conducive to carrying electrical current so long as the incident light is above a threshold energy. (You are encouraged to [re]familiarize yourself with valence bands, conduction bands, and band gaps.) Silicon for example has a band gap of $1.26$ eV, which allows us to minimize the effects of thermal excitation and know the wavelength ranges to which the detector is sensitive ($E<1.26$ eV corresponds to $\lambda < 1100$ nm).
 
-%In the optical regime, a single photon can only cause a single photo-electron to be ejected from the material; and because the kinetic energy of the photo-electron is determined by energy of the incident photon, we can keep track of both the energy of the incident photons and how many photons were absorbed. One of the best ways to keep track of these things is to use a semi-conductor, and the most common semi-conducting material for CCDs is the humble silicon.
-
-% A detailed treatment of solid-state physics is beyond the scope of this course. We can summarize things by stating that forming a solid material from isolated atoms introduces an \textbf{electronic band structure} consisting of a valence band, a conduction band, and a band gap. The valence band is filled with tightly bound electrons which cannot move freely. The conduction band is generally empty, and if enough energy is provided to the valence band to overcome the band gap, electrons from the valence band can move to the conduction band and conduct electricity. %Insulators like rubber have a very large band gap and so are not useful for conducting electricity, while metals have no band gap and are very good at conducting electricity. 
-
-% Semi-conductors are materials that have small band gaps that make it easy for electrons to jump bands and conduct electricity.\footnote{Insulators (like rubber) have very large band gaps ($>3$ eV), while metals have no band gap.} Silicon has a band gap of $1.26$ eV which minimizes the effects of thermal excitation. This also sets a limit on the upper wavelength range to which the material is sensitive, as photons with $E < 1.26$ eV ($<1100$ nm) will not produce photo-electrons. We can of course construct CCDs from other materials, but silicon is most common. 
 
 The surface of a CCD chip is typically a grid of small photo-receptor pixels, which are just arrays of capacitors or photo-diodes each connected to electrodes. A pixel will convert light into an electronic charge and store the charge in a potential well to prevent it from spilling over into neighboring pixels. By adjusting the voltages on the electrodes (called \textbf{clocking}), the charge can be transferred from pixel to pixel (\textbf{charge coupling}) until reaching a serial register at the end of the row. This charge is converted to an analog voltage, and an analog-to-digital converter (ADC) uses the voltage to digitize the number of counts in each pixel and stores it to a disk. A cartoon of a small CCD section can be seen in Figure~\ref{fig:ccd-array}.
 
@@ -1417,16 +1393,14 @@ The surface of a CCD chip is typically a grid of small photo-receptor pixels, wh
     \caption{{\small Panel (a): Schematic of a section of a CCD pixel with four electrodes. The channel stop prevents charge leakage from one pixel column to another. Charges are stored in a buried channel separated from the surface by an insulator. Panel (b): Charges are moved across a pixel through clocking. Images courtesy of Teledyne Imaging.}\label{fig:ccd-array}}
 \end{figure*}
 
-You can imagine that CMOS detector works in much the same way: light strikes a pixel, the photon energy is converted to a proportionate number of electrons, and some conversion occurs that allows us to read the corresponding value. However, with the CCD the charge is moved accross pixels before being read out, whereas a CMOS detector allows each pixel to locally convert the charge to a digital voltage which is read out directly through a series of electronic switches. This provides a very rapid and power-efficient operation that also allows pixels to be read individually; while this historically came at the cost of high noise and low image resolution, recent advancements in the technology have seen it surpass the CCD in performance and quality.
+You can imagine that a CMOS detector works in much the same way: light strikes a pixel, the photon energy is converted to a proportionate number of electrons, and some conversion occurs that allows us to read the corresponding value. However, with the CCD the charge is moved accross pixels before being read out, whereas a CMOS detector allows each pixel to locally convert the charge to a digital voltage which is read out directly through a series of electronic switches. This provides a very rapid and power-efficient operation that also allows pixels to be read individually; while this historically came at the cost of high noise and low image resolution, recent advancements in the technology have seen it surpass the CCD in performance and quality.
 
-\begin{figure}
+\begin{figure*}
    \centering
    \includegraphics[width=0.9\linewidth, trim={0cm 1.25cm 0cm 0cm}, clip=true]{graphics/ccds/CCDvsCMOS.png}
    \caption{A cartoon demonstrating the charge-to-voltage conversion process for CCDs and CMOS detectors. Image courtesy of \href{https://meroli.web.cern.ch/meroli/lecture_cmos_vs_ccd_pixel_sensor.html}{Stefan Meroli/CERN}.\label{fig:ccd-cmos}}
-\end{figure}
+\end{figure*}
 
-
-% A CCD will typically handle this operation in bulk across an entire row of pixels, using clocking to transfer charges from pixel to pixel (this is called \textbf{charge coupling}) until reaching a serial register at the end of the row. The total charge in each pixel is then converted to an analog voltage by the readout electronics using the familiar voltage-charge-capacitance relationship $V = Q/C$. Using an analog-to-digital converter (ADC), the analog voltage is digitized to a number of counts in each pixel and written to a disk. However, because the voltage cannot be measured with perfect accuracy, there is a baked-in uncertainty in each read called \textbf{readout noise}, which is relatively unimportant for bright objects but can introduce worlds of pain for fainter objects. 
 
 \subsection{Filters}
 \label{subsec:filters}
@@ -1448,15 +1422,6 @@ We could also look Earth-ward and map vegetation and water vapor using the same 
 
 \newpage
 \subsection{Data Reduction}
-
-% \begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Andrew's Notes]
-% Calibration done at three levels:
-% \begin{itemize}
-%     \item Detector level: remove artifacts introduced by the CCD (flats, bias, darks)
-%     \item Instrument level: correct for telescope/optics artifacts (bad pixels, cosmic rays, vignetting)
-%     \item Physical level: convert digital values to scientifically meaningful units (photometric, astrometric, and flux calibration)
-% \end{itemize}
-% \end{tcolorbox} 
 
 Simply taking a picture with a detector is not sufficient to acquire science-ready data. To use a raw image we first need to \textbf{calibrate} the exposure, and this process is done at three levels:
 
@@ -1489,19 +1454,18 @@ We mentioned quite a few types of images and calibrations above. In short:
         \textbf{Flat field frames} compensate for variations in pixel sensitivity across the detector by applying a constant, uniform illumination. This also helps correct the instrument-level issues mentioned above
 \end{itemize}
 
-We also have a few different types of calibrations depending on whether we are handling images of space or images of the ground. Whichever type of observation we use, we are primarily interested in two things: calibrating the coordinates, which maps the pixels to some absolute geometric location; and calibrating the brightness, which relates the digital counts to an absolute reference frame such as flux or radiation. 
+We also have a few different types of calibrations depending on whether we are handling images of space or images of the ground. Whichever type of observation we use, we are primarily interested in two things: calibrating the coordinates, which maps the pixels to some absolute geometric location; and calibrating the brightness, which relates the digital counts to an absolute reference frame such as flux, radiation, or reflectance.
 
 For space observations, we use \textbf{astrometric} calibration to map the physical pixels to coordinates in the plane of the sky, called ``right ascension'' (RA, horizontal component) and ``declination'' (DEC, vertical component). This is typically done using sky catalogs. \textbf{Photometric} calibration uses standard stars with known magnitudes (brightness) to calculate the \textit{zero point}\footnote{That is, the magnitude of an object that produces one count per second.} of a detector and convert the detector counts to a physical brightness we call the \textit{standard magnitude}.
 
-For Earth observations, we use \textbf{geometric} calibration based on highly detailed world maps to assign physical coordinates to pixels. This is typically not as difficult as \textbf{radiometric} calibration, which is the analog to photometric calibration above. With radiometric calibration, the effects of the atmosphere are much more important, so it is critical to have maps of aerosol content, cloud cover, and water vapor, and correlate these with solar irradiance models and radiative transfer models. 
-% \begin{itemize}
-%     \item 
-%         \textbf{Astrometric calibration} maps the pixels to physical sky coordinates called ``right ascension'' (RA, horizontal component) and ``declination'' (dec, vertical component), typically using known sky catalogs.
-%     \item 
-%         \textbf{Photometric calibration} uses standard stars with known magnitudes (brightness) to calculate the \textit{zero point}\footnote{That is, the magnitude of an object that produces one count per second.} of the detector and convert detector counts to a physical brightness called \textit{standard magnitude.}
-% \end{itemize}
-
-% For Earth observations, we would not use astrometric or photometric calibration, but the principles are still the same. Absolute coordinates would be registered through \textbf{geometric calibration}, and ``brightness'' would be registered through \textbf{radiometric calibration}. 
+For Earth observations, we use \textbf{geometric} calibration based on highly
+detailed world maps to assign physical coordinates to pixels. This
+is done alongside \textbf{radiometric} calibration, which is somewhat analogous
+to photometric calibration above. With radiometric calibration, the effects of
+the atmosphere are much more important, so it is critical to have maps of
+aerosol content, cloud cover, and water vapor, and correlate these with solar
+irradiance models and radiative transfer models in order to convert raw values
+to physically meaningful surface reflectance.
 
 \subsection{Bad Pixels}
 
@@ -1509,7 +1473,7 @@ A final note here about the data reduction process is handling bad pixels and, f
 
 For space observations, we must also contend with cosmic rays, which are high-energy charged particles that insinuate themselves into nearly all astronomical images. The good news is that these events are random, so when we take 50 or a 100 calibration images, even though all of them will likely contain cosmic rays, these cosmic rays will not be in the same pixels in every image. Additionally, they will not have the same shape as stars because they result from the local deposition of energy in a pixel, rather than the passage of photons through the telescope optics, and so do not follow a Gauss-like distribution of signal across pixels. For calibration images, we can typically rely on a median combination of multiple exposures to mitigate or even completely remove (if we are lucky) cosmic rays from the final image.\footnote{Assuming, of course, that there are enough exposures and these exposures all have the same units.} We could also use sigma-clipping or median-clipping, which both aim to detect and suppress outliers from the data.
 
-For science images it is a bit more complicated, so much so that multiple robust algorithms have been developed (such as L.A.Cosmic; see \href{https://ui.adsabs.harvard.edu/abs/2001PASP..113.1420V/abstract}{van Dokkum, 2001}) to address it. We will see a few of these in the workshop. 
+For science images it is a bit more complicated, so much so that multiple robust algorithms have been developed (such as L.A.Cosmic; see \href{https://ui.adsabs.harvard.edu/abs/2001PASP..113.1420V/abstract}{van Dokkum, 2001}) to address it. We will not worry so much about that here. %see a few of these in the workshop. 
 
 \subsection{Instrument Response}
 
@@ -1551,10 +1515,6 @@ The \textit{Hubble Space Telescope} (HST) is probably familiar to you already. F
     \item the Space Telescope Imaging Spectrograph (STIS); and
     \item The Wide Field Camera 3 (WFC3) %\footnote{Its predecessors were the Wide Field and Planetary Cameras. The WFPC only operated until 1993, while the WFPC2 operated until 2009; both are now decommissioned, though data is still available in the Hubble Legacy Archives.}
 \end{enumerate}
-
-% The ACS has two channels, and the one most often used is the Wide Field Channel. This channel boasts two $2048\times4096$ pixel CCDs with a resolution of $0.05^{\prime\prime}$ per pixel. The ACS operates over $350-1100$ nm and has a set of 38 different filters, of which 11 are broadband filters and 5 are narrow-band filters. 
-
-% THE WFC3 was installed during the last service mission in 2009 and is the most advanced instrument on the telescope. Like the ACS it has two $2048\times4096$ pixels CCDs in the optical, operating in the wavelength range $200-1000$ nm, and has an additional IR detector with a $1024\times1024$ pixel CCD which can see from $800-1700$ nm. The optical detectors have a resolution of $0.04^{\prime\prime}$ per pixel. It also has access to several broadband and narrow-band filters over its wavelength range.
 
 The predecessor to the WFC3 was the Wide Field and Planetary Camera 2 (WFPC2), which was in operation between 1993 and 2009 before being decommissioned. This instrument consisted of four $800\times800$ pixel CCDs, three of which are arranged in an ``L''-shaped pattern (these are the Wide Field Camera portion) with a fourth CCD for the Planetary Camera portion. The Planetary Camera chip has a better resolution than the WF chips\footnote{It is actually more correct to say that the PC chip has better sampling than the WF chips. The pixels in the PC chip are 50 milliarcsec rather than 100 mas on the WC chip. This means that the diffraction limited resolution of the HST optics can be fully sampled by the PC chip, while the WF detectors will undersample it.}, but when these are all combined into a single image, the pixels are all resampled to the same spatial scale. The result of this is that the PC chip appears ``sharper'' in its quality than the WF chips. An example of WFPC2 data is seen below in Figure~\ref{fig:wfpc2-chips}.
 
@@ -1619,23 +1579,26 @@ There are many other reasons why we might care about flux densities and brightne
 \begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Exercises]
 %[width=\linewidth, sharp corners=all, colback=white!95!black]
 
-You will be working with observations of the loose globular cluster NGC 1261 as observed with the WFPC2. This object was surveyed as part of a large legacy survey project aimed at better understanding stellar populations, which is detailed in \href{https://iopscience.iop.org/article/10.1088/0004-6256/149/3/91}{Piotto et al (2015)}. These data are stored in the FITS image format, which you can load in Python using the \verb|astropy| module. Using images from the F336W and F555W filters, you will complete the following tasks:
+You will be working with observations of the loose globular cluster NGC 1261 as observed with the WFPC2. This object was surveyed as part of a large legacy survey project aimed at better understanding stellar populations, which is detailed in \href{https://iopscience.iop.org/article/10.1088/0004-6256/149/3/91}{Piotto et al (2015)}. These data are stored in the FITS image format, which you can load in Python using the \verb|astropy| module. You are tasked with writing a Python script to accomplish the following:
+%from the F336W and F555W filters, you will complete the following tasks:
 
 \begin{enumerate}
-    \item 
-        Compare the images from each of the filters and remove the cosmic rays;
-    \item 
-        Perform photometry on the stars you identify in the images, and using the zero-points provided, computer their magnitudes and construct a HR diagram.
-    \item 
-        Fit 1D or 2D Gaussians to the sources in one of your images, and make a histogram of the FWHM values of these sources. Compare your FWHM values with your HR diagram to identify extended sources and point sources.
+  \item 
+    Calibrate the three raw images provided by your instructor using the associated calibration files;
+  \item 
+    Stack the calibrated images to remove cosmic rays;
+  \item 
+    Compare your calibrated files against the science images in the F336W filter
 \end{enumerate}
+
+While it is not part of the submittable assessment, you should also stack the science images to remove cosmic rays before comparing them to your own calibrated files. How you compare the files is up to you, but your analysis should be \textbf{quantitative} and ideally make good use of figures.
 \end{tcolorbox} 
 
 
 
 \section{Sentinel-2 images}
 
-The Sentinel-2B satellite (Fig. \ref{fig:sentinel}) launched in 2017 (it was joined by the identical Sentinel-2C in 2024). Each of the Sentinel-2 satellites caries a single instrument, the ``Multi-Spectral Imager''. You can read the detailed of how the MSI works \href{https://sentiwiki.copernicus.eu/web/s2-mission#S2-Mission-MSI-Instrument}{here}, but in brief it uses a ``push-broom'' approach to scan a 290~km-wide swathe of the Earth's surface.
+The Sentinel-2B satellite (Fig. \ref{fig:sentinel}) launched in 2017 (it was joined by the identical Sentinel-2C in 2024). Each of the Sentinel-2 satellites caries a single instrument, the ``Multi-Spectral Imager''. You can read the detailed of how the MSI works \href{https://sentiwiki.copernicus.eu/web/s2-mission#S2-Mission-MSI-Instrument}{here}, but in brief it uses a ``push-broom'' approach to scan a 290~km-wide swathe of the Earth's surface. This push-broom method is similar to how a photocopier or scanner works: as the satellite moves through its orbit, it scans a region of the earth beneath it and updates its detector register as it goes. 
 
 \begin{figure}
     \centering
@@ -1644,8 +1607,32 @@ The Sentinel-2B satellite (Fig. \ref{fig:sentinel}) launched in 2017 (it was joi
 \end{figure}
 
 As the satellite orbits, it collects light reflected from a strip of the Earth's surface. This light is passed to either the Visible and Near-Infra-Red (VNIR) detectors or the Short Wave Infra-Red (SWIR) detectors, which measure the reflected intensity in one of 13 different spectral bands (filters). The filters have been chosen to be sensitive to specific surface properties of interest, for example showing reflected light from vegetation, or from clouds. You can find some discussion of the filters used at this 
-\href{https://gisgeography.com/sentinel-2-bands-combinations}{link}.
+\href{https://gisgeography.com/sentinel-2-bands-combinations}{link}. For ease of reference we have adapted the (very helpful) table from the linked site below.
 
+\begin{table*}[htbp]
+  \centering
+  \begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}}c c c c}
+%  \begin{tabular*}{{\textwidth}{@{\extracolsep{\fill}}cccc}
+    \toprule
+    \textbf{Band} & \textbf{Resolution} & \textbf{Central Wavelength} & \textbf{Description} \\
+    \midrule
+    B1  & 60 m & 443 nm  & Ultra Blue (Coastal and Aerosol) \\
+    B2  & 10 m & 490 nm  & Blue \\
+    B3  & 10 m & 560 nm  & Green \\
+    B4  & 10 m & 665 nm  & Red \\
+    B5  & 20 m & 705 nm  & Vegetation Red Edge \\
+    B6  & 20 m & 740 nm  & Vegetation Red Edge \\
+    B7  & 20 m & 783 nm  & Vegetation Red Edge \\
+    B8  & 10 m & 842 nm  & Near Infrared (NIR) \\
+    B8a & 20 m & 865 nm  & Narrow NIR \\
+    B9  & 60 m & 940 nm  & Water Vapour \\
+    B10 & 60 m & 1375 nm & SWIR (Cirrus) \\
+    B11 & 20 m & 1610 nm & SWIR \\
+    B12 & 20 m & 2190 nm & SWIR \\
+    \bottomrule
+  \end{tabular*}
+  \caption{Sentinel-2 Spectral Bands Specification\label{tab:sentinel-bands}}
+\end{table*}
 
 The European Space Agency provides a large number of tools to interact with Sentinel data, in particular through the \href{https://browser.dataspace.copernicus.eu}{Copernicus Browser}. As Sentinel data are quite large, it is often easier to work with them in the cloud, rather than downloading them to a local machine. However, for this exercise we will work on a simple analysis of a downloaded subset of Sentinel data.
 On Brightspace you have been provided with ``Level 2A'' data products from Sentinel-2. These are bottom of atmosphere reflectances in cartographic geometry, in  other words they have been corrected for the effects of atmospheric absorption, and mapped onto a flat surface. The resolution of these images will vary between 10 amd 60-m depending on the wavelength in question.
@@ -1661,16 +1648,15 @@ Your task is to use these, along with white light images from Google Earth to un
 
 
 \begin{enumerate}
-    \item Read in the images you have been provided with into numpy arrays. The ``PIL'' package can help with this.
+  \item Read in the images you have been provided with into numpy arrays. The \texttt{PIL} or \texttt{rasterio} packages can help with this.
     \item Using the white light images, measure the area of the island as a function of time. A scale bar is provided in the corner of each image.
     \item Within the Sentinel directory are several pre-generated products such as NDVI, NDWI etc. Using these, make a plot of the area covered in vegetation as a function of time.
-    \item You have also been provided with the images that are used to make NDVI, NDWI etc (these are the files that have the suffix ``raw''. Use these to make your own NDWI and NDVI. How do these compare to the ones you have been provided with?
+    \item You have also been provided with the images that are used to make NDVI, NDWI etc (these are the files that have the suffix \texttt{.raw}. Use these to make your own NDWI and NDVI. How do these compare to the ones you have been provided with?
 \end{enumerate}
 
 
 
 \end{tcolorbox} 
-¯
 
 %from PIL import Image
 %>>> im = Image.open('a_image.tif')
