@@ -18,6 +18,14 @@ fi
 
 echo "Installing required LaTeX packages..."
 tlmgr install \
+  ifmtarg \
+  hardwrap \
+  sauerj \
+  tcolorbox \
+  caption \
+  listings \
+  pdfpages \
+  units \
   changepage \
   fancyhdr \
   geometry \
@@ -37,11 +45,13 @@ tlmgr install \
   mathpazo \
   microtype \
   soul \
+  makeindex \
   2>/dev/null
 
 echo "Testing compilation..."
 if latexmk -pdf -interaction=nonstopmode main.tex; then
   echo "Setup complete! Document compiled successfully."
+  echo "Make sure to check in-text references: you may need to compile again!"
 else
   echo "There might still be missing packages. Check the output above."
 fi
