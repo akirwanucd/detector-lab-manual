@@ -25,8 +25,7 @@ Laboratory}
 \usepackage{tcolorbox} 
 \PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref}
-\usepackage{caption}
-\usepackage{subcaption}
+ 
 \newsavebox\myboxA
 \newsavebox\myboxB
 \newlength\mylenA
@@ -160,14 +159,12 @@ Laboratory}
 \newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
 \newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
 
-%\usepackage{textgreek}
-\newcommand{\alphadecay}{\ensuremath{\alpha}}
-\newcommand{\betaminus}{\ensuremath{\beta}\textsuperscript{$-$}}
-\newcommand{\gammadecay}{\ensuremath{\gamma}}
-\renewcommand{\textgamma}{\ensuremath{\gamma}}
-\renewcommand{\textalpha}{\ensuremath{\alpha}}
-\renewcommand{\textbeta}{\ensuremath{\beta}}
-\newcommand{\gmray}{\ensuremath{\gamma}-ray}
+\usepackage{textgreek}
+\newcommand{\alphadecay}{\textalpha}
+\newcommand{\betaminus}{\textbeta\textsuperscript{$-$}}
+\newcommand{\gammadecay}{\textgamma}
+
+\newcommand{\gmray}{$\gamma$-ray}
 % Generates the index
 \usepackage{makeidx}
 \makeindex
@@ -197,13 +194,9 @@ Laboratory}
 
 \smallcaps{Authors: \\
                     Morgan Fraser (morgan.fraser@ucd.ie, UCD School of Physics)\\
-                    Andrew Kirwan (andrew.kirwan1@ucd.ie, UCD School of Physics)\\
-                    Robert Jeffrey (University of Southampton School of Physics \& Astronomy)}\\
+                    Andrew Kirwan (andrew.kirwan1@ucd.ie, UCD School of Physics)}\\
 \smallskip
 \smallcaps{version 0.1, 28 May 2025}\\
-\smallcaps{version 1.0, 7 Sept 2025}\\
-\smallcaps{version 2.0, 25 Sept 2025}\\
-\smallcaps{version 3.0, 12 Nov 2025}\\
 
 
 %\noindent\fbox{%
@@ -267,7 +260,7 @@ Laboratory}
 % Aims of the module, how it is strucutred etc.
 % \begin{fullwidth}
     
-{The Space Detector Laboratory} is a 10 credit core module for the MSc Space Science \& Technology course. This is a lab-based module with lab sessions scheduled for Mondays and Tuesdays from 14:00-17:00. You will be expected to do independent work, including (but not limited to) preparation, reading, coding, and report writing outside of these hours. 
+{The Space Detector Laboratory} is a 10 credit core module for the MSc Space Science \& Technology course. This is a lab-based module with lab sessions scheduled for Mondays and Tuesdays from 14:00-15:00. You will be expected to do independent work, including (but not limited to) preparation, reading, coding, and report writing outside of these hours. 
 
 This module is intended to instill a working, functional understanding of detector systems and imaging technology, as well as provide practical experience with ``CubeSat`` and nano-satellite systems. These skills will prepare you for both the Space Mission Design field trip, and the Satellite Subsystems lab in Semester 2. Additionally, we will introduce you to some essential coding skills in the Python programming language, which will further aid you later in your studies.
 
@@ -275,7 +268,6 @@ This module is intended to instill a working, functional understanding of detect
 The module has three primary components:
 
 \begin{itemize}
-    \item Fundamentals of Python
     \item CCDs \& Imaging Techniques
     \item Gamma-ray Detectors in Space \& Astronomy
     \item ``AMSAT`` (\textbf{Am}ateur \textbf{Sat}ellite) and CubeSat systems
@@ -286,11 +278,10 @@ The module has three primary components:
 % \end{fullwidth}
 \section{Course schedule}
 
-% order is python > optical > he detectors > amsat. Need to update table below
+order is python > optical > he detectors > amsat. Need to update table below
 \begin{table}
     \centering
-    \begin{tabular}{c||cl}
-    \hline\hline
+    \begin{tabular}{c|c|c}
         W1 & Mon 8th Sept & Introduction to Python \\
            & Tue 9th      & Introduction to Python \\
            \hline
@@ -307,7 +298,14 @@ The module has three primary components:
            & Tues 7th     & Sentinel-2 exercise\\
            \hline
         W6 & Mon  13th    & Sentinel-2 exercise\\
-            & Tues 14th    & High energy detectors lecture\\
+           \hline
+        W11 & Mon 17th    & AMSAT - introduction\\
+           & Tues 18th    & AMSAT - connecting \\
+           \hline
+        W12 & Mon 24th    & AMSAT experiments\\
+           & Tues 25th    & AMSAT experiments\\
+        
+           & Tues 14th    & High energy detectors lecture\\
            \hline
         W7 & Mon 20th     & Detector 1 experiment\\
            & Tues 21st    & Detector 1 experiment\\
@@ -320,23 +318,6 @@ The module has three primary components:
            \hline
         W10 & Mon 10th    & Detector 2 experiment\\
            & Tues 11st    & Merge detector results\\
-        W11 & Mon 17th    & AMSAT - introduction\\
-           & Tues 18th    & AMSAT - connecting \\
-           \hline
-        W12 & Mon 24th    & AMSAT experiments\\
-           & Tues 25th    & AMSAT experiments\\
-           \hline\hline
-        % W7 & Mon 20th     & Detector 1 experiment\\
-        %    & Tues 21st    & Detector 1 experiment\\
-        %    \hline
-        % W8 & Mon 27th     & Public holiday\\
-        %    & Tues 28th    & Detector 1 experiment\\
-        %    \hline
-        % W9 & Mon 3rd Nov  & Detector 2 experiment\\
-        %    & Tues 4th     & Detector 2 experiment\\
-        %    \hline
-        % W10 & Mon 10th    & Detector 2 experiment\\
-        %    & Tues 11st    & Merge detector results\\
     \end{tabular}
     \label{tab:my_label}
 \end{table}
@@ -346,32 +327,31 @@ The module has three primary components:
 \newpage
 
 % \end{fullwidth}
-\section{Assessment \& Deliverables}
+\section{Assesment \& Deliverables}
 
-{Throughout} the course you will be assessed through a combination of assignments and continuous assessments. The assessed deliverables are as follows: 
+{Throughout} the course you will be assessed through a combination of assignments and continuous assessments. The assessed deliverables are as follows: \textbf{(Andrew's note: just need to figure out weightings for the assessments.)}
 % \end{fullwidth}
 
 \begin{enumerate}
     \item Programming in Python
     \begin{itemize}
-        \item Code submissions (20\%)
+        \item Code submissions
     \end{itemize}
     \item Optical and Other Detectors
     \begin{itemize}
-        \item Code submissions (25\%)
+        \item Code submissions
     \end{itemize}
     \item Gamma-ray Detectors in Astronomy
     \begin{itemize}
-        \item Code submissions (15\%)
-        \item Final Report (15\%)
+        \item Code submissions
+        \item Final Report
     \end{itemize}
     \item AMSAT
     \begin{itemize}
-        \item Final Report  (25\%)
+        \item Final Report
     \end{itemize}
 \end{enumerate}
 
-In some cases you may be asked to put some of your work on a GitHub repository, however {\it in all cases you will need to also upload these onto Brightspace} 
 
 \chapter{Computing fundamentals}
 \label{ch:python}
@@ -382,7 +362,7 @@ In some cases you may be asked to put some of your work on a GitHub repository, 
 \label{subsec:python-intro}
 
 % Why they need to learn Python, some links to good online courses
-{Python} is an open-source, easily accessible, and powerful programming and scripting language which has become increasingly popular in a variety of disciplines, particularly astronomy and physics. The most accessible and practical use of the language is with the Raspberry Pi computer and other microcontrollers, as these are especially well-documented by DIY enthusiasts, ``makers'', and electronics hobbyists. We see it used in higher-level situations as well: for example, CubeSats and nano-satellites (Section~\ref{chap:amsats}) often have software/hardware interfaces controlled with the Python language, and state-of-the-art telescopes like the James Webb Space Telescope (JWST) feature data reduction pipelines written almost entirely in Python. 
+{Python} is an open-source, easily accessible, and powerful programming and scripting language which has become increasingly popular in a variety of disciplines, particularly astronomy and physics. The most accessible and practical use of the language is with the Raspberry Pi computer and other microcontrollers, as these are especially well-documented by DIY enthusiasts, ``makers'', and electronics hobbyists. We see it used in higher-level situations as well: for example, CubeSats and nano-satellites (which will be discussed later) often have software/hardware interfaces controlled with the Python language, and state-of-the-art telescopes like the James Webb Space Telescope (JWST) feature data reduction pipelines written almost entirely in Python. 
 
 Perhaps most attractive is the simplicity and human-like syntax of the language; this ease of use has made Python a choice language for statistics, machine learning, and data reduction and visualization. Additionally, its popularity has led to the community development of countless tools (called ``modules'' or packages) that can be imported into your workspace and used with minimal effort, preventing the need to ``reinvent the wheel'' when writing your own code for data analysis. Overall it is a user-friendly and easy-to-learn language that offers accessibility to a host of disciplines for both the humble beginner and the seasoned programmer. 
 
@@ -392,9 +372,7 @@ Some of you may have prior experience with Python, though we anticipate that few
 
 {There are several ways} to install Python, and the method you choose really depends on what you are most comfortable doing. The easiest method by far is through the Anaconda distribution platform, which has two ``flavors`` or installations from which to choose: \href{http://conda.pydata.org/miniconda.html}{miniconda} and \href{https://www.anaconda.com/download}{anaconda}. Both of these version rely on the same underlying architecture which installs both Python and the command-line tool \verb|conda|. Miniconda is a lightweight version which only installs the bare minimum (that is, \textit{only} Python and \verb|conda|), while Anaconda includes a massive collection of pre-installed packages that are commonly used in scientific computing. 
 
-For this course we recommend the `anaconda` package. Full details of how to use the architecture can be found on their website, and you have the option to create an account or skip registration; it is easiest to simply skip registration and proceed to the download. Once it is installed, you can access the Anaconda Navigator and open a Jupyter Notebook to get started. You should spend some time getting to know the Navigator. 
-
-If you feel adventurous and want to use the command line, you can access the command prompt by using the Windows Start Menu (if you are using Windows), or find it within the Anaconda Navigator. On MacOS or Linux, you can open up a terminal and type \verb|conda activate|. Once you've activated miniconda you should see something like
+For this course we recommend the miniconda package. Full details of how to use the architecture can be found on their website. Once it is installed, you can access the Anaconda prompt by using the Windows Start Menu (if you are using Windows). On MacOS or Linux, you can open up a terminal and type \verb|conda activate|. Once you've activated miniconda you should see something like
 
 \begin{lstlisting}[backgroundcolor=\color{lightgray}]
 (base) C:\Users\YourUsername>   # for Windows
@@ -402,7 +380,6 @@ If you feel adventurous and want to use the command line, you can access the com
 (base) user@hostname:-$       # for Mac/Linux
 \end{lstlisting}
 % \end{lstlisting}
-
 
 Throughout this handbook, we will present all operations from the command line or terminal in the style:
 \begin{lstlisting}[backgroundcolor=\color{lightgray}]
@@ -1069,80 +1046,6 @@ There are other parameters which can be passed to \verb|curve_fit|, such as boun
 
 \end{tcolorbox} 
 
-\subsection{Addendum: Classes}
-
-A final important (but maybe not essential for us) is a discussion on the concept of \textbf{classes}. Python is an ``object-oriented programming'' language, meaning that it bundles properties, attributes, and behaviors into containers we call \textbf{objects} and we create these objects from \textbf{classes}. Classes are the blueprints for creating objects, and objects are the digital representatives of real-world things and phenomena. When we \textbf{instantiate} an object, we bring it to life by creating a variable to represent its thing-ness. This is necessary because the class only defines what the object \textit{is}, not the unique object itself.
-
-When we construct a class, we typically use it to contain to contain attributes (data) and methods (ways to manipulate data) that govern the properties and behavior of an object. A relevant example we could use here is a satellite. At its most simplistic, we would have a few \textbf{attributes} like name, altitude, power, and data storage; the \textbf{methods} we define could be power on/off or maybe collect/transmit data. How could we translate this to Python?
-
-\begin{lstlisting}[language=Python, showstringspaces=false,backgroundcolor=\color{lightgray}, breaklines=true]
-class Satellite:
-    def __init__(self, name, altitude):
-        self.name = name
-        self.altitude = altitude
-        self.power_on = False
-        self.data_stored = 0.  # in MB
-
-    def power(self, state):
-        self.power_on = state
-        status = "ON" if self.power_on else "OFF"
-        print(f"{self.name} is now {status}")
-\end{lstlisting}
-
-You are familiar with functions so \verb|power()| needs no explanation; but \verb|__init__()| is probably new to you. This is called a \textbf{constructor method}, and it runs automatically any time an object is instantiated from the class blueprint to essentially fill the object with its thing-ness. Each class function must have a \verb|self| argument, as this is how Python refers to the specific object created by the class. We can create a simple satellite with:
-
-\begin{lstlisting}[language=Python, showstringspaces=false,backgroundcolor=\color{lightgray}, breaklines=true]
-hubble = Satellite("Hubble", 515)
-jwst = Satellite("James Webb", 1.5e6)
-\end{lstlisting}
-
-We can interact with these:
-
-\begin{lstlisting}[language=Python, showstringspaces=false,backgroundcolor=\color{lightgray}, breaklines=true]
-print(hubble.name)
-print(hubble.altitude)
-print(hubble.power(True))
-\end{lstlisting}
-
-\noindent which will print the name and orbital altitude, and toggle the power to ``ON''. However there is still an attribute that we have defined but neglected: \verb|data_collected|. This is a dynamic attribute just like the power status, so we expect that this should change in some way. 
-
-Let us create two new class functions that allow us to specify how much data has been collected and instruct the satellite to transmit data. We will consider first what is actually happening. Before we collect any data we need to ensure the satellite is powered on, and when we collect data we need to increment the \verb|data_collected| attribute by some amount, so we will need to specify that amount. When we transmit, we assume for the sake of simplicity that all the collected data gets transmitted, so it needs to reset the \verb|data_collected| attribute to 0 again.
-
-\begin{lstlisting}[language=Python, showstringspaces=false,backgroundcolor=\color{lightgray}, breaklines=true]
-class Satellite:
-    # previous functions are unchanged
-    
-    def collect_data(self, amount):
-        if self.power_on:
-            self.data_stored += amount
-            print(f"{self.name} has collected {amount} MB of data.")
-            print(f"It now has {self.data_stored} MB of data.")
-        else:
-            print(f"{self.name} is powered off. Cannot collect data.")
-
-    def transmit_data(self):
-        if self.power_on and self.data_stored > 0:
-            print(f"{self.name} has transmitted {self.data_stored} MB of data.")
-            self.data_stored = 0.
-        elif not self.power_on:
-            print(f"{self.name} is powered off. Cannot transmit data.")
-        else:
-            print(f"{self.name} has no data to transmit.")
-\end{lstlisting}
-
-We can test these new methods:
-
-\begin{lstlisting}[language=Python, showstringspaces=false,backgroundcolor=\color{lightgray}, breaklines=true]
-hubble.collect_data(512)
-hubble.collect_data(64)
-hubble.transmit_data()
-\end{lstlisting}
-
-In terms of the above discussion, when we call either of these methods, the \verb|self| argument is implicitly the object \verb|hubble|, so we do not need to specify that argument. This is still a rather simplistic example, but the benefit of class functions should be fairly clear. These can be as comprehensive as we want, as well: we could restructure our class to describe global attributes and methods that all satellites have, and then we could build further sub-classes of satellites that \textbf{inherit} the global attributes and methods from the \textbf{parent} class, and each sub-class (or child class, if you would like) is given their own unique attributes and methods to complement these global ones. This concept is called \textbf{inheritance} and it is also incredibly important in Python.
-
-In accessing the attributes and methods of the \verb|Satellite| objects we created, we might notice that the syntax is quite similar to things we have already done,  for example \verb|np.array| or \verb|scipy.optimize|. This is not by accident: modules in Python are a toolbox that contain all the blueprints for the tools we want to use, as well as ``loose tools'' (for example, \verb|numpy.sqrt()|) for quick access. When we create an array with \verb|numpy| we are creating an object from a blueprint, and we can access its methods and attributes with things like \verb|my_array.sum()| or \verb|my_array.shape|. 
-
-When designing your own programs later in this course, you may decide that creating classes is the best approach for organizing the workflow; or you may decide this is too much work and feel that you will not benefit from its usage. The great thing about Python is that it ultimately does not care: we could design a rigorous data reduction pipeline without using any of our own classes at all and still be just as useful as a pipeline designed with custom classes and objects. Knowing how to use them, though, will enhance your own coding abilities in the end and allow you to better understand the overall architecture of the language.  
 
 \newthought{Recommended Reading:}
 \begin{itemize}
@@ -1150,7 +1053,6 @@ When designing your own programs later in this course, you may decide that creat
     \item \href{https://greenteapress.com/wp/think-python-2e/}{Think Python (2e)}, by Allen B. Downey
     \item \href{https://python-guide.readthedocs.io/en/latest/}{The Hitchhiker's Guide to Python}
     \item \href{https://lectures.scientific-python.org/}{Scientific Python Lectures}, by dozens of authors and contributors
-    \item \href{https://docs.python.org/3/tutorial/classes.html#}{Python Classes}, in the Python documentation
 \end{itemize}
 
 \section{GitHub}\label{sec:github} %
@@ -1179,7 +1081,7 @@ There are many platforms on which to use the Git architecture, most notably {\hr
 
 \textbf{Cloning}, as the name implies, allows you to make a local copy of a repository (that is, you can save it to your computer). When you clone a repository GitHub pulls down \textit{all} of the data from that project to your machine, giving you access to every version of every file and folder of the project. When you alter the local copy on your computer, you can use Git to sync your local copy to the remote copy. This makes it easy to edit code or fix issues, and also to add or remove entire files or folders that you may not need for your project. %Cloning is done either through the command line interface (this author's preference) or through the GitHub Desktop application. 
 
-\textbf{Committing and pushing} are the collective processes by which you take all your edits and changes for a project and add them to the remote repository. When tell Git that you want to \textit{commit} certain files, it keeps track of them in your repository and makes a ``checkpoint``. It is best practice to include useful \textit{commit messages} so that other contributors can have an idea of what changes you made. Once you've committed all your files and folders that you want to be part of your project, you use the \textit{push} command to tell Git to add those changes to the remote repository. 
+\textbf{Committing and pushing} are the collective process by which you take all your edits and changes for a project and add them to the remote repository. When tell Git that you want to \textit{commit} certain files, it keeps track of them in your repository and makes a ``checkpoint``. It is best practice to include useful \textit{commit messages} so that other contributors can have an idea of what changes you made. Once you've committed all your files and folders that you want to be part of your project, you use the \textit{push} command to tell Git to add those changes to the remote repository. 
 % Why github is important, what is is, some basics of how to interact with it
 
 \newthought{In each repository} we begin with a default ``branch`` (or version of that repository) which we call \verb|main|. By longstanding tradition, programmers are expected to reserve the \verb|main| branch for the final, publishable version of their project or code. If we want to make a change or add something to our project but we do not want to change the primary code, we create a different branch with a descriptive name and make any edits on the code there. If we are working as part of a group, we can create something called a ``pull request`` that lets the other collaborators know we have proposed a change to the code, and (if all goes well) merge our branch with \verb|main|, as seen in Figure~\ref{fig:git-branch-flow}. 
@@ -1338,7 +1240,7 @@ Aside from the major problem with using LLMs for writing, namely that it has no 
     \item Most industry and government bodies have very strict rules around data confidentiality and security. Using an LLM from a third party can result in loss of proprietary information. 
 \end{itemize}
 
-As a final note, we may also be concerned about the the environmental impact that systems support LLMs can have. For example, a single Google search uses about 10\% of the Wh required to ask ChatGPT the same thing.\footnote{See \href{https://www.rwdigital.ca/blog/how-much-energy-do-google-search-and-chatgpt-use/}{here} for reference, as well as \href{https://www.rwdigital.ca/blog/how-much-energy-do-google-search-and-chatgpt-use/}{the MIT Technology Review} series on the subject.} While this may amount to comparatively very little for a single user, as the number of users of LLMs grows the energy usage increases significantly; according to the CSO\footnote{\href{https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2024/}{CSO Statistical Release}, ISSN 2811-5422}, as of 2024, data centers in Ireland accounted for 22\% of all electricity usage in the country -- an increase of over 500\% since 2015. While of course the overall impact of LLMs and data centers is far beyond the scope of this course, as scientists we should nevertheless seek to understand the tools we use so that we can make informed decisions about our relationship with those tools.\footnote{See, if you are interested, \href{https://mit-serc.pubpub.org/pub/the-cloud-is-material/release/2}{The Cloud is Material} for one opinion (of many) on this subject.}
+As a final note, we may also be concerned about the the environmental impact that systems support LLMs can have For example, a single Google search uses about 10\% of the Wh required to ask ChatGPT the same thing.\footnote{See \href{https://www.rwdigital.ca/blog/how-much-energy-do-google-search-and-chatgpt-use/}{here} for reference, as well as \href{https://www.rwdigital.ca/blog/how-much-energy-do-google-search-and-chatgpt-use/}{the MIT Technology Review} series on the subject.} While this may amount to comparatively very little for a single user, as the number of users of LLMs grows the energy usage increases significantly; according to the CSO\footnote{\href{https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2024/}{CSO Statistical Release}, ISSN 2811-5422}as of 2024, data centers in Ireland accounted for nearly a quarter of all electricity usage in the country -- an increase of over 500\% since 2015. While of course the overall impact of LLMs and data centers is far beyond the scope of this course, as scientists we should nevertheless seek to understand the tools we use so that we can make informed decisions about our relationship with those tools.\footnote{See, if you are interested, \href{https://mit-serc.pubpub.org/pub/the-cloud-is-material/release/2}{The Cloud is Material} for one opinion (of many) on this subject.}
 
 \begin{tcolorbox}[sharp corners=all, colback=white!75!red]
 Key points for using LLMs in this module
@@ -1362,386 +1264,34 @@ Note that each module will have its own rules regarding the use of AI, and you s
 % \section{Experiment}
 
 
+% \begin{tcolorbox}[sharp corners=all, colback=white!75!green]
+% %[width=\linewidth, sharp corners=all, colback=white!95!black]
 
+% What to do for the experiment here
+
+% \begin{itemize}
+% \item Code to do calibration curve (channel to wavelength)
+% \item Code to get energy resolution (FWHM of photopeaks) and make a plot as a function of energy
+% \item Code to get efficiency, absolute, intrinsic plotted as a function of enerhy
+% \item Off axis response (change in FWHM and peak height) 
+% \end{itemize}
+
+% \end{tcolorbox} 
 
 % \section{Comparing results}
 
 % Get results from github for other groups. Plot a sensitivity curve etc for all four detectors
 
-\chapter{Optical and other detectors}
-
-% \begin{tcolorbox}[sharp corners=all, colback=red!5,colframe=red!75!black,title=\textbf{TODO}]
-% %[width=\linewidth, sharp corners=all, colback=white!95!black]
-
-% It's difficult to tell what should and shouldn't be included sometimes, but this could be trimmed back a bit by including links to e.g. \href{https://sheffield-mps.github.io/PHY241/lectures/l06/}{these lecture notes on CCDs} for them to read separately so we don't need to give a full course on solid-state electronics and CCDs. I can package some of the coding stuff into the notebooks so we don't need to talk about them here, but there will be a lot going on that might make this section grow and grow and grow... With that in mind:
-% \begin{enumerate}
-%     \item 
-%         Do we want to make them write their own CR rejection routine? It's very complicated...
-%     \item 
-%         I think we were saying we wanted to include PSF stuff. I need to fit that in here somewhere. Do we expect them to use \texttt{photutils} or do their own naive implementation?
-%     \item 
-%         I also think I need to make more space by cutting back some things. It's difficult to tell what should and shouldn't be included sometimes!
-%     \item 
-%         Alternatively, I could be more brief in the summary and link them to If there's a publicly available UCD one I can dig up I could link to that instead. Either way I'm thinking a ``Further Reading'' list or something.
-% \end{enumerate}
+opti\chapter{Optical and other detectors}
 
 
-% \end{tcolorbox} 
-\section{Introduction}
-
-In the days of yore, astronomers relied solely on their eyes and artistic abilities to record their observations of the sky. 
-In antiquity it would have literally been their naked eyes doing these observations; with the invention of the telescope, details were able to be refined, but there was still no way to \textit{record} these measurements apart from manual sketches. The limitations of drawings do not need to be stated here. A more important limiting factor is the inefficiency of the human eye at processing light: we have evolved useful photo-receptors to assist us in mediating our visual sensations, but they are only sensitive to a narrow range of the electromagnetic (EM) spectrum (about 400-700 nm; see Figure~\ref{fig:em-spectrum}), and evolution has provided us with a peak response to green light, around $555$~nm.\footnote{Additionally, conditions like color blindness and age can alter our experience of visual stimuli, further complicating the objective recording of \textit{structure} observed in celestial objects. See \href{https://onlinelibrary.wiley.com/doi/full/10.1002/wmts.8}{Kawamura \& Tachibanaki} (2012) for a review on the subject.} 
-
-By the 19$^{\mathrm{th}}$ century, the use of light-sensitive materials to permanently fix an observed image to an external medium led to the invention of photography. Initially relying on solid plates (like the daguerreotype in 1839, which captured the first photograph of the moon), early experimenters developed various techniques that exploited both optics and chemistry, and various
-technological advancements eventually resulted in the creation of photographic film by the end of that century.\footnote{See the \href{https://albert.rct.uk/explore/themes/photographic-technologies}{Photographic Technologies} page at the Royal Collection Trust if you are interested in these early techniques; see also \href{https://www.highpointscientific.com/astronomy-hub/post/astronomy-101/history-of-astrophotography}{The History of Astrophotography} on the High Point Scientific Astronomy Hub.} 
-
-\begin{figure*}[h!]
-%    \centering
-    \includegraphics[width=0.65\linewidth]{graphics/ccds/EM_spectrum.png}
-    \caption{A visualization of the electromagnetic spectrum, highlighting the region of visible light to which the human eye is sensitive. Illustration by Philip Ronan, \href{https://commons.wikimedia.org/wiki/File:EM_spectrum.svg}{CC BY-SA 3.0}, obtained through Wikimedia Commons.}
-    \label{fig:em-spectrum}
-\end{figure*}
-
-Unfortunately, photographic plates and film are not much more efficient at processing light than the human eye, although they do receive light over a broader wavelength range. Standard film is sensitive to wavelengths around 300-1100 nm, while clever chemical techniques could be used with photographic plates to see x-rays and \gmray s! For astronomical purposes, photographic plates offered the great benefit that they could provide a wide field-of-view (FOV) and high resolution, which was useful for standardizing observations across telescopes and producing large sky surveys. Another advantage to these techniques over the human eye is that we could control the exposure time, meaning more photons could be collected to get a better image; by contrast, the exposure time of the human eye is fixed by biochemical processes regardless of how long we look at something. Plates and film do have the unfortunate drawback of non-linear behavior, however: if we think of the medium like a sponge that soaks up photons, the more photons it absorbs the more difficult it becomes to continue absorbing photons. In this way, bright light does not necessarily create a proportional increase in the exposure, which can make it difficult for astronomers to perform a quantitative analysis of their observations.
-
-Everything changed in the 1950s and 1960s when researchers at Bell Laboratories developed metal-oxide-semiconductor (MOS) technology, which laid the foundation for two groundbreaking devices in image sensing: the so-called ``charge-coupled device`` or CCD; and the complementary MOS or CMOS. CCDs proved incredibly efficient at capturing light over a broad wavelength range, which led to the wide-spread adoption of the technically across a variety of fields from biology to astronomy. Early on CMOS image sensors had quite poor performance compared to CCDs in terms of image quality (though they excelled in power efficiency), but in recent years major developments have led to CMOS technology (and others) actually surpassing CCDs in many applications. In the following discussion, we will explore the basic functionality and characteristics of CCDs and CMOS detectors, and explore their usage in the context of astronomy and space science.
-
-%Everything changed when Bell Laboratories created the so-called ``charge-coupled device'', or CCD, in the 1960s that ended up being incredibly efficient at capturing light over a broad wavelength range and exhibited linear behavior. This powerful discovery led to the wide-spread adoption of the CCD detector across a variety of fields from biology to astronomy, and it additionally became a staple in the every-day technology of digital cameras. In the following discussion, we will explore the basic functionality and characteristics of CCDs, and explore their usage in the context of physics and space science.
-
-\subsection{Detector Fundamentals}
-\label{subsec:det_fund}
-%\textbf{\Large Andrew needs to tidy this up}
-
-% \subsection{Why CCDs?}
-A detector, in our context, is any device that we place in an instrument or telescope that allows us to measure incident photons. These photons can be at any wavelength, and we choose the type of detector based on the energy range we wish to observe. We are generally interested in a few other characteristics as well, namely the \textbf{spectral response} of the detector and the \textbf{quantum efficiency} of the detector. The spectral response is like a sensitivity in that it tells us how effectively the detector is able to distinguish different colors (that is, light at different wavelengths), while the quantum efficiency tells us how good the detector is at converting absorbed photons into an electrical signal. We can express the responsivity of a detector by
-
-\begin{equation}
-    R_\lambda = \eta \frac{e}{hf}
-\end{equation}
-
-\noindent where $e$ is the charge, $h$ is Planck's constant, and $f$ is the frequency of the optical signal. The parameter $\eta$ is the quantum efficiency, defined simply by
-
-\begin{equation}
-    \eta = QE(\%) = \frac{\mathrm{\#~of~electrons~produced}}{\mathrm{\#~of~photons-absorbed}}
-\end{equation}
-
-With semiconductor materials we often see silicon, though other elements can be used as well. Optical detectors feature a grid of photo-receptors called pixels that absorb light and produce a corresponding electrical current that is directly proportional to the energy of the absorbed light. CCDs and CMOS detectors are incredibly efficient -- better than 80\% in the peak response range -- and are responsive across the entire spectrum. A comparison of the responsivity and efficiency of a typical CCD and the average human eye can be seen in Figure~\ref{fig:qe-ccd-eye}.
-
-%Historically, optical and near-infrared (NIR) applications have relied on the CCD, which is generally a silicon semi-conductor (sometimes doped with another element) featuring a grid of photo-receptors called pixels that absorb light and produce a corresponding electrical current that is directly proportional to the energy of the absorbed light. CCDs are incredibly efficient -- better than 80\% in its peak response range\footnote{With clever manufacturing this can be as high as 95\%} -- and are responsive across the entire visible spectrum, making them ideal for observational astronomy. A comparison of the responsivity and efficiency of a typical CCD and the average human eye can be seen in Figure~\ref{fig:qe-ccd-eye}.%\footnote{There are numerous reasons why we care about the responsivity from a physics point of view, but for our purposes it is enough to simply say that a better spectral response results in more detailed information in an observation. 
-
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\textwidth]{graphics/ccds/quantum_efficiency.png}
-        \caption{}
-    \end{subfigure}
-    \begin{subfigure}{0.48\textwidth}
-        \includegraphics[width=\textwidth]{graphics/ccds/spectral_sensitivity.png}
-        \caption{}
-    \end{subfigure}
-    % \includegraphics[width=0.9\linewidth]{graphics/ccds/quantum_efficiency.png}
-    \caption{Graphs demonstrating (a) the typical quantum efficiencies of a CCD detector and typical human eye, and (b) the spectral response of a CCD detector and typical human eye, both as functions of wavelength. Data for the eye adapted from the~\href{https://doi.org/10.25039/CIE.DS.dktna2s3}{CIE spectral luminous efficiency for photopic vision} table (2019).}
-    \label{fig:qe-ccd-eye}
-\end{figure*}
-
-
-
-% \subsection{}
-How do CCDs and CMOS achieve such high efficiency? At the most fundamental level, %CCDs (and other detectors; we will see this later) 
-they exploit the photo-electric effect, where a material emits electrons after absorbing photons that exceed a threshold energy that we call the \textit{work function} of that material. This means we can keep track of both the energy and the amount of incident photons on a detector. By fabricating these detectors from semi-conductor materials, we can tailor the band gap of the detector so that it is conducive to carrying electrical current so long as the incident light is above a threshold energy. (You are encouraged to [re]familiarize yourself with valence bands, conduction bands, and band gaps.) Silicon for example has a band gap of $1.26$ eV, which allows us to minimize the effects of thermal excitation and know the wavelength ranges to which the detector is sensitive ($E<1.26$ eV corresponds to $\lambda < 1100$ nm).
-
-%In the optical regime, a single photon can only cause a single photo-electron to be ejected from the material; and because the kinetic energy of the photo-electron is determined by energy of the incident photon, we can keep track of both the energy of the incident photons and how many photons were absorbed. One of the best ways to keep track of these things is to use a semi-conductor, and the most common semi-conducting material for CCDs is the humble silicon.
-
-% A detailed treatment of solid-state physics is beyond the scope of this course. We can summarize things by stating that forming a solid material from isolated atoms introduces an \textbf{electronic band structure} consisting of a valence band, a conduction band, and a band gap. The valence band is filled with tightly bound electrons which cannot move freely. The conduction band is generally empty, and if enough energy is provided to the valence band to overcome the band gap, electrons from the valence band can move to the conduction band and conduct electricity. %Insulators like rubber have a very large band gap and so are not useful for conducting electricity, while metals have no band gap and are very good at conducting electricity. 
-
-% Semi-conductors are materials that have small band gaps that make it easy for electrons to jump bands and conduct electricity.\footnote{Insulators (like rubber) have very large band gaps ($>3$ eV), while metals have no band gap.} Silicon has a band gap of $1.26$ eV which minimizes the effects of thermal excitation. This also sets a limit on the upper wavelength range to which the material is sensitive, as photons with $E < 1.26$ eV ($<1100$ nm) will not produce photo-electrons. We can of course construct CCDs from other materials, but silicon is most common. 
-
-The surface of a CCD chip is typically a grid of small photo-receptor pixels, which are just arrays of capacitors or photo-diodes each connected to electrodes. A pixel will convert light into an electronic charge and store the charge in a potential well to prevent it from spilling over into neighboring pixels. By adjusting the voltages on the electrodes (called \textbf{clocking}), the charge can be transferred from pixel to pixel (\textbf{charge coupling}) until reaching a serial register at the end of the row. This charge is converted to an analog voltage, and an analog-to-digital converter (ADC) uses the voltage to digitize the number of counts in each pixel and stores it to a disk. A cartoon of a small CCD section can be seen in Figure~\ref{fig:ccd-array}.
-
-\begin{figure*}
-    \centering
-    \begin{subfigure}{0.6\textwidth}
-        \includegraphics[width=\linewidth]{graphics/ccds/ccd-schematic.png}
-        \caption{}
-    \end{subfigure}
-    \begin{subfigure}{0.33\textwidth}
-        \includegraphics[width=\textwidth]{graphics/ccds/ccd-charge-trans.png}
-        \caption{}
-    \end{subfigure}
-    \caption{{\small Panel (a): Schematic of a section of a CCD pixel with four electrodes. The channel stop prevents charge leakage from one pixel column to another. Charges are stored in a buried channel separated from the surface by an insulator. Panel (b): Charges are moved across a pixel through clocking. Images courtesy of Teledyne Imaging.}}
-    \label{fig:ccd-array}
-\end{figure*}
-
-You can imagine that CMOS detector works in much the same way: light strikes a pixel, the photon energy is converted to a proportionate number of electrons, and some conversion occurs that allows us to read the corresponding value. However, with the CCD the charge is moved accross pixels before being read out, whereas a CMOS detector allows each pixel to locally convert the charge to a digital voltage which is read out directly through a series of electronic switches. This provides a very rapid and power-efficient operation that also allows pixels to be read individually; while this historically came at the cost of high noise and low image resolution, recent advancements in the technology have seen it surpass the CCD in performance and quality.
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.9\linewidth, trim={0cm 1.25cm 0cm 0cm}, clip=true]{graphics/ccds/CCDvsCMOS.png}
-   \caption{A cartoon demonstrating the charge-to-voltage conversion process for CCDs and CMOS detectors. Image courtesy of \href{https://meroli.web.cern.ch/meroli/lecture_cmos_vs_ccd_pixel_sensor.html}{Stefan Meroli/CERN}.}
-   \label{fig:ccd-cmos}
-\end{figure}
-
-
-% A CCD will typically handle this operation in bulk across an entire row of pixels, using clocking to transfer charges from pixel to pixel (this is called \textbf{charge coupling}) until reaching a serial register at the end of the row. The total charge in each pixel is then converted to an analog voltage by the readout electronics using the familiar voltage-charge-capacitance relationship $V = Q/C$. Using an analog-to-digital converter (ADC), the analog voltage is digitized to a number of counts in each pixel and written to a disk. However, because the voltage cannot be measured with perfect accuracy, there is a baked-in uncertainty in each read called \textbf{readout noise}, which is relatively unimportant for bright objects but can introduce worlds of pain for fainter objects. 
-
-\subsection{Filters}
-\label{subsec:filters}
-
-We have seen that CCDs and CMOS detectors have a broad wavelength range and significant responsivity. When exploring the physical and morphological \textit{structure} of a terrestrial or celestial object, we generally want to narrow our vision to particular colors. For example, if we measure the brightness of a star in blue light and compare it against its brightness in green light, we can actually use this information to determine where the star fits on the stellar evolutionary chart we call the Hertzsprung-Russel Diagram. %(See the information page about HR Diagrams on the \href{https://chandra.harvard.edu/edu/formal/variable_stars/bg_info.html}{CHANDRA} site.) 
-We could also look Earth-ward and map vegetation and water vapor using the same principles. We accomplish this using \textbf{bandpass filters}, which only allow light from a certain range of energy to pass through. Observatories like the Hubble Space Telescope (HST), the James Webb Space Telescope (HST), and Sentinel-2 allow astronomers and space scientists to use a number of filters on their imaging instruments, which are characterized in terms of their \textbf{throughput} or the percentage of incident photons per wavelength they allow to pass through. An example of four well-known HST filters are shown in Figure~\ref{fig:hst-filters}, and a plot of Sentinel-2's spatial resolution as a function of wavelength is shown in Figure~\ref{fig:sen2-filters}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\linewidth]{graphics/ccds/hst-throughput.png}
-    \caption{Transmission throughput curves for four HST filters, which are named based on the central wavelength and bandpass width (e.g. \textbf{W}ide or \textbf{N}arrow. For example, F475W signifies it is a filter with a central wavelength of $475$ nm and wide bandpass.}
-    \label{fig:hst-filters}
-\end{figure}
-
-\begin{figure*}[h]
-  \centering
-  \includegraphics[width=0.9\linewidth]{graphics/ccds/S2-2022_Auto16.jpeg}
-  \caption{Spatial resolution versus wavelength for the Multi-Spectral Imager (MSI) on-board Sentinel-2. The 13 spectral bands span the visible through the IR. Image courtesty of the \href{https://www.eoportal.org/satellite-missions/copernicus-sentinel-2}{eoPortal}.}
-  \label{fig:sen2-filters}
-\end{figure*}
-
-\newpage
-\subsection{Data Reduction}
-
-% \begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Andrew's Notes]
-% Calibration done at three levels:
-% \begin{itemize}
-%     \item Detector level: remove artifacts introduced by the CCD (flats, bias, darks)
-%     \item Instrument level: correct for telescope/optics artifacts (bad pixels, cosmic rays, vignetting)
-%     \item Physical level: convert digital values to scientifically meaningful units (photometric, astrometric, and flux calibration)
-% \end{itemize}
-% \end{tcolorbox} 
-
-Simply taking a picture with a detector is not sufficient to acquire science-ready data. To use a raw image we first need to \textbf{calibrate} the exposure, and this process is done at three levels:
-
-\begin{itemize}
-    \item 
-        \textbf{Detector level}: CCDs are not perfect and all exposures contain noise that needs to be corrected. We use calibration images or frames such as \textit{bias frames}, \textit{dark frames}, and \textit{flat field frames} to compensate for this noise.
-    \item 
-        \textbf{Instrument level}: telescopes are not perfect either, so we need to correct for artifacts and noise effects introduced by e.g. the optical setup or filters, such as distortion, vignetting, and cosmic rays.
-    \item 
-      \textbf{Physical level}: the digitized values produced by a detector need to be converted to meaningful physical units. For space observations, this typically involves \textit{astrometric calibration} and \textit{photometric calibration}; for a telescope like Sentinel-2, this requires \textit{radiometric calibration} and \textit{geometric calibration}.
-\end{itemize}
-
-The raw image itself is actually a combination of several factors:%\footnote{See the \href{https://www.astropy.org/ccd-reduction-and-photometry-guide/v/dev/notebooks/01-05-Calibration-overview.html}{Calibration Overview} on the astropy documentation page for a derivation of these equations.}
-
-\begin{align}
-    \mathrm{raw~image} &= \mathrm{bias+noise+dark+flat\times(sky+stars) } \\
-    \mathrm{stars + noise} &= \frac{\mathrm{raw~image-bias-dark}}{\mathrm{flat}}-\mathrm{sky}
-\end{align}
-
-Nearly every instrument will bundle calibration files with science observations, and these calibration files (typically numbering in the hundreds) are produced quite regularly. Because all images have noise that we cannot completely remove, we want to combine as many images as we can as this will reduce the noise in the final ``stacked'' image by $\sim N^{-{1}/{2}}$ with $N$ being the number of frames we combined to make our stacked image. This stacking is simply a median combination of all the images of that type.\footnote{We prefer the median over the average as this mitigates outlier values.}
-
-We mentioned quite a few types of images and calibrations above. In short: 
-
-\begin{itemize}
-    \item 
-        \textbf{Bias frames} compensate for electronics readout noise; these are short exposures with a closed shutter (that is, no incident light).
-    \item 
-        \textbf{Dark frames} compensate for thermal noise; these have the same exposure time as your science observations but with a closed shutter.
-    \item 
-        \textbf{Flat field frames} compensate for variations in pixel sensitivity across the detector by applying a constant, uniform illumination. This also helps correct the instrument-level issues mentioned above
-\end{itemize}
-
-We also have a few different types of calibrations depending on whether we are handling images of space or images of the ground. Whichever type of observation we use, we are primarily interested in two things: calibrating the coordinates, which maps the pixels to some absolute geometric location; and calibrating the brightness, which relates the digital counts to an absolute reference frame such as flux or radiation. 
-
-For space observations, we use \textbf{astrometric} calibration to map the physical pixels to coordinates in the plane of the sky, called ``right ascension'' (RA, horizontal component) and ``declination'' (DEC, vertical component). This is typically done using sky catalogs. \textbf{Photometric} calibration uses standard stars with known magnitudes (brightness) to calculate the \textit{zero point}\footnote{That is, the magnitude of an object that produces one count per second.} of a detector and convert the detector counts to a physical brightness we call the \textit{standard magnitude}.
-
-For Earth observations, we use \textbf{geometric} calibration based on highly detailed world maps to assign physical coordinates to pixels. This is typically not as difficult as \textbf{radiometric} calibration, which is the analog to photometric calibration above. With radiometric calibration, the effects of the atmosphere are much more important, so it is critical to have maps of aerosol content, cloud cover, and water vapor, and correlate these with solar irradiance models and radiative transfer models. 
-% \begin{itemize}
-%     \item 
-%         \textbf{Astrometric calibration} maps the pixels to physical sky coordinates called ``right ascension'' (RA, horizontal component) and ``declination'' (dec, vertical component), typically using known sky catalogs.
-%     \item 
-%         \textbf{Photometric calibration} uses standard stars with known magnitudes (brightness) to calculate the \textit{zero point}\footnote{That is, the magnitude of an object that produces one count per second.} of the detector and convert detector counts to a physical brightness called \textit{standard magnitude.}
-% \end{itemize}
-
-% For Earth observations, we would not use astrometric or photometric calibration, but the principles are still the same. Absolute coordinates would be registered through \textbf{geometric calibration}, and ``brightness'' would be registered through \textbf{radiometric calibration}. 
-
-\subsection{Bad Pixels}
-
-A final note here about the data reduction process is handling bad pixels and, for space observations, cosmic rays. As the name implies, bad pixels are literally just pixels that do not work properly. This can mean that they either do not measure any light because they have broken, or they suffer too greatly from the effects of dark current such that dark calibration cannot compensate properly. We can try to identify hot pixels by comparing two dark frames of different exposure times and finding where the count rates are too high. For bad pixels we can use the flat frames, again with different exposure times, and compare them as we did the dark frames, though this process is a bit more complicated. Either way, the result is that we make a \textit{mask} to hide the hot or bad pixels so that we can always keep track of them throughout our calibration and analysis, or in some cases interpolate the bad pixels based on neighboring values.
-
-For space observations, we must also contend with cosmic rays, which are high-energy charged particles that insinuate themselves into nearly all astronomical images. The good news is that these events are random, so when we take 50 or a 100 calibration images, even though all of them will likely contain cosmic rays, these cosmic rays will not be in the same pixels in every image. Additionally, they will not have the same shape as stars because they result from the local deposition of energy in a pixel, rather than the passage of photons through the telescope optics, and so do not follow a Gauss-like distribution of signal across pixels. For calibration images, we can typically rely on a median combination of multiple exposures to mitigate or even completely remove (if we are lucky) cosmic rays from the final image.\footnote{Assuming, of course, that there are enough exposures and these exposures all have the same units.} We could also use sigma-clipping or median-clipping, which both aim to detect and suppress outliers from the data.
-
-For science images it is a bit more complicated, so much so that multiple robust algorithms have been developed (such as L.A.Cosmic; see \href{https://ui.adsabs.harvard.edu/abs/2001PASP..113.1420V/abstract}{van Dokkum, 2001}) to address it. We will see a few of these in the workshop. 
-
-\subsection{Instrument Response}
-
-Sources emit photons at random, and the detection probability is governed by Poisson statistics; however because we are dealing with large numbers this Poisson distribution basically becomes approximately Gaussian:
-
-\begin{equation}
-P(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(k-N)^2 / 2\sigma^2}
-\end{equation}
-
-This distribution plays a large role in determining the ``shape'' of an object we observe as translated by the detector and the telescope. Both the optical system (mirrors) and the electrical system (CCD) are limited in how well they can resolve or ``pick out'' the detail of an object and distinguish it from other nearby objects. When we aim the telescope at a small, localized source (like a very distant star) the beam of light is``spread out'' in the image. We describe how this light is spread out in terms of the Point Spread Function (PSF) of a telescope, which is essentially the impulse response function of the system that gives us an apparent surface brightness profile. 
-
-In reality the mathematical formulation of the PSF can be quite complicated, and is affected by mirror aberrations, beam alignment, charge diffusion in the CCD, and (for terrestrial observations) atmospheric conditions. For instruments like the Hubble, JWST, and SENTINEL, much work has been done to derive empirical expressions for the PSFs of those instruments, and data reduction pipelines typically include tools which attempt to correct the images using the PSF. For our purposes we're interested in the shape, which we can approximate as a two-dimensional Gaussian:
-
-\begin{equation}
-G(x, y) = A \times \exp\left(-\left(\frac{(x-x_0)^2}{2\sigma_x^2} + \frac{(y-y_0)^2}{2\sigma_y^2}\right)\right)
-\end{equation}
-
-\noindent however, in the context of astronomical imaging this is still a rather gross simplification. A more accurate distribution for modeling the PSF is the Moffat function:
-
-\begin{equation}
-M(x, y) = A \times \left( 1 + \frac{(x-x_0)^2 + (y-y_0)^2}{\gamma^2}\right)^{-\alpha}
-\end{equation}
-
-\noindent where $\gamma$ functions similar to the Gaussian $\sigma$ (that is, the core width of the model) and $\alpha$ is the power index. The FWHM of the Moffat function is:
-
-\begin{equation}
-\mathrm{FWHM} = 2\gamma \sqrt{2^{-\alpha} - 1}
-\end{equation}
-
-The benefit of the Moffat function for space applications is that it better describes the shape of the ``wings'' of a source, which is to say how the light distribution into surrounding pixels behaves. It is also of great use for ground-based observations as the $\gamma$ and $\alpha$ parameters are sensitive to atmospheric conditions.
+\section{Theory}
 
 \section{HST images}
 
-The \textit{Hubble Space Telescope} (HST) is probably familiar to you already. For those who are unaware, it was developed by the National Aeronautics and Space Administration (NASA) and European Space Agency (ESA) as a low Earth orbit space observatory, and was launched on 24 April, 1990. For 35 years it has been at the forefront of astronomy, and has provided such a wealth of data that agencies like ESA and NASA regularly employ astronomers just to look at old archival data! At the moment, the four primary instruments still in service are:
-
-\begin{enumerate}
-    \item The Advanced Camera for Surveys (ACS);
-    \item the Cosmic Origins Spectrograph (COS);
-    \item the Space Telescope Imaging Spectrograph (STIS); and
-    \item The Wide Field Camera 3 (WFC3) %\footnote{Its predecessors were the Wide Field and Planetary Cameras. The WFPC only operated until 1993, while the WFPC2 operated until 2009; both are now decommissioned, though data is still available in the Hubble Legacy Archives.}
-\end{enumerate}
-
-% The ACS has two channels, and the one most often used is the Wide Field Channel. This channel boasts two $2048\times4096$ pixel CCDs with a resolution of $0.05^{\prime\prime}$ per pixel. The ACS operates over $350-1100$ nm and has a set of 38 different filters, of which 11 are broadband filters and 5 are narrow-band filters. 
-
-% THE WFC3 was installed during the last service mission in 2009 and is the most advanced instrument on the telescope. Like the ACS it has two $2048\times4096$ pixels CCDs in the optical, operating in the wavelength range $200-1000$ nm, and has an additional IR detector with a $1024\times1024$ pixel CCD which can see from $800-1700$ nm. The optical detectors have a resolution of $0.04^{\prime\prime}$ per pixel. It also has access to several broadband and narrow-band filters over its wavelength range.
-
-The predecessor to the WFC3 was the Wide Field and Planetary Camera 2 (WFPC2), which was in operation between 1993 and 2009 before being decommissioned. This instrument consisted of four $800\times800$ pixel CCDs, three of which are arranged in an ``L''-shaped pattern (these are the Wide Field Camera portion) with a fourth CCD for the Planetary Camera portion. The Planetary Camera chip has a better resolution than the WF chips\footnote{It is actually more correct to say that the PC chip has better sampling than the WF chips. The pixels in the PC chip are 50 milliarcsec rather than 100 mas on the WC chip. This means that the diffraction limited resolution of the HST optics can be fully sampled by the PC chip, while the WF detectors will undersample it.}, but when these are all combined into a single image, the pixels are all resampled to the same spatial scale. The result of this is that the PC chip appears ``sharper'' in its quality than the WF chips. An example of WFPC2 data is seen below in Figure~\ref{fig:wfpc2-chips}.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth, trim={0.2cm 0.2cm 0 0}, clip=true]{graphics/ccds/Screenshot 2025-09-02 at 15.22.35.png}
-    \caption{An image of the famous Pillars of Creation as seen by the WFPC2. The staircase pattern is seen clearly, and the regions of the different chips are overlaid on the image.}
-    \label{fig:wfpc2-chips}
-\end{figure}
-
-\subsection{FITS files}
-Like nearly all digital astronomical data, the data produced by these instruments are stored in standardized files which follow the Flexible Image Transport System (FITS) protocol. FITS files store their data in a multi-dimensional plain-text form as "header data units" or HDUs and combine them into an HDU list. Each HDU is stored as an extension and would contain the physical information (counts, fluxes, etc.; the numerical data) as well as a header that contains all the metadata about the physical information. A visualization of this can be seen in Figure~\ref{fig:fits-format}.
-
-\begin{marginfigure}
-    \centering
-    \includegraphics[width=\linewidth]{graphics/ccds/fig31_fitsformat.png}
-    \caption{The building blocks of a FITS file. Image courtesy of the Space Telescope Science Institute.}
-    \label{fig:fits-format}
-\end{marginfigure}
-
-Typically we have a \verb|PRIMARY| HDU which is a metadata header that contains all the information about the telescope, the observation ID, observation conditions, and other parameters that describe the overall data. The first extension is typically a \verb|SCI| HDU, which would have the image itself as a \verb|DATA| card and more metadata as a \verb|HEADER| card. There are also other extensions that contain, for example, uncertainties, data quality, and so on, but for 2D images these two are the most common. In the workshop notebooks you will learn how to access these files and their data using Python.
-
-\subsection{Photometry}
-
-When dealing with astronomical sources, we are particularly interested in the brightness of the object. The amount of light that falls into the detector while using a particular filter tells us about the flux of the source,\footnote{Technically, we are dealing with the \textit{spectral flux density} but many lazy astronomers (one of these authors included) just call it the flux.} and we can use this in conjunction with the shape of the PSF (and some other instrumental considerations) to glean important information about the nature of the source. 
-
-A common practice is called \textbf{photometry}, which is a way in which we measure the brightness of an object so that we can derive other interesting parameters. At its most basic, photometry is simply ``adding up'' all the photons within an aperture or circle of some radius focused on a source. To get an accurate estimation, the aperture should be large enough to capture the entire source and its surrounding area, as this allows us to estimate a local background, and additionally provides some local characterization of the noise around that source. At the same time, it should not be so large that signal from other sources contaminate our measurement, so caution should be exercised. A common practice is to use a so-called ``annular aperture'', in which one circular aperture is focused on a source and small ring surrounds it without overlapping to estimate a background. An example of this is seen in Figure~\ref{fig:apertures}.
-
-\begin{marginfigure}
-    \centering
-    \includegraphics[width=\linewidth]{graphics/ccds/aperture-1.hires.png}
-    \caption{An example of an annular aperture. Small circular apertures (shown in white) are focused on the source, while smaller annuli (shown in red) encompass the local background. Image from the \href{https://photutils.readthedocs.io/en/stable/user_guide/aperture.html}{photutils documentation}.}
-    \label{fig:apertures}
-\end{marginfigure}
-
-When we have counted up the signal counts and corrected for background and noise, we can convert our signal sum into an instrumental magnitude. This is easily found by
-
-\begin{equation}
-    m = -2.5 \times \log\left(\frac{\mathrm{DN}}{\mathrm{EXPTIME}}\right) + \mathrm{ZP}
-\end{equation}
-
-\noindent where \verb|DN| is the data number (typically counts or electrons), \verb|EXPTIME| is the exposure time, and \verb|ZP| is the zero-point of the instrument. This zero-point provides us with a path to translate from counts to a photometric system to a physical measurement like flux density. We can use either the so-called ST magnitude system, where flux density is expressed per unit wavelength, or the AB magnitude system, where it is expressed per unit frequency. For optical observations, wavelength is easiest, and we can calculate our ST magnitude by
-
-\begin{equation}
-m_{\mathrm{ST}} = -2.5 \log F_{\lambda} - 21.10
-\end{equation}
-
-\noindent where the flux $F_{\lambda}$ is in units of $\mathrm{erg~cm}^{-2}~ \mathrm{s}^{-1}~\mathring{\mathrm{A}}^{-1}$. For HST observations, the headers will typically contain information about the zero-point and conversion factor to transform data units to a flux density. We will work with this more in our workshops.
-
-These steps only provide us with the \textit{apparent} magnitude. To get an \textit{absolute} magnitude (or intrinsic brightness), we need to know the distance to the star. When that is known, we can calculate the absolute magnitude with:
-
-\begin{equation}
-    M = m + 5 - 5 \log_{10} d
-\end{equation}
-
-\noindent where $M$ and $m$ are the absolute and apparent magnitudes, and $d$ is the distance in parsecs. 
-
-Why do we care about magnitudes? Most simply because our magnitudes are a direct window into the physical conditions of the star. In fact, using magnitudes as determined from various filters is how we construct the HR Diagrams we briefly mentioned above in our section on filters. You can read all about them on the \href{https://chandra.harvard.edu/edu/formal/variable_stars/bg_info.html}{CHANDRA} site. If we recall the blackbody curve from undergraduate physics, we will remember that hot stars emit light most strongly at short wavelengths (blue and ultraviolet; $B$-band for short) while cooler stars emit most strongly in the visible and infrared (the $V$-band). 
-
-When we use two or more filters to get the magnitude of a star, we will notice that the magnitudes in each filter are slightly different; this so-called ``color excess'' (the difference in magnitudes between filters) tells us whether the star is hot or cool. As a general guideline a $B-V$ color excess $<0.5$~ is a hot star, while a $B-V$ excess $>2.0$~ is a cool star. This incredibly simple parameter tells us about the relationship between the brightness and temperature of stars and how this relates to their evolutionary cycle.
-
-There are many other reasons why we might care about flux densities and brightness in specific filters, but for the moment let us content ourselves with the evolutionary track as observed through an HR Diagram.
-
-\subsection{Assignment}
-\begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Exercises]
-%[width=\linewidth, sharp corners=all, colback=white!95!black]
-
-You will be working with observations of the loose globular cluster NGC 1261 as observed with the WFPC2. This object was surveyed as part of a large legacy survey project aimed at better understanding stellar populations, which is detailed in \href{https://iopscience.iop.org/article/10.1088/0004-6256/149/3/91}{Piotto et al (2015)}. These data are stored in the FITS image format, which you can load in Python using the \verb|astropy| module. Using images from the F336W and F555W filters, you will complete the following tasks:
-
-\begin{enumerate}
-    \item 
-        Compare the images from each of the filters and remove the cosmic rays;
-    \item 
-        Perform photometry on the stars you identify in the images, and using the zero-points provided, computer their magnitudes and construct a HR diagram.
-    \item 
-        Fit 1D or 2D Gaussians to the sources in one of your images, and make a histogram of the FWHM values of these sources. Compare your FWHM values with your HR diagram to identify extended sources and point sources.
-\end{enumerate}
-\end{tcolorbox} 
 
 
-
-\section{Sentinel-2 images}
-
-The Sentinel-2B satellite (Fig. \ref{fig:sentinel}) launched in 2017 (it was joined by the identical Sentinel-2C in 2024). Each of the Sentinel-2 satellites caries a single instrument, the ``Multi-Spectral Imager''. You can read the detailed of how the MSI works \href{https://sentiwiki.copernicus.eu/web/s2-mission#S2-Mission-MSI-Instrument}{here}, but in brief it uses a ``push-broom'' approach to scan a 290~km-wide swathe of the Earth's surface.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{graphics/Mapping_in_colour_pillars.png}
-    \caption{The Sentinel-2 satellite}
-    \label{fig:sentinel}
-\end{figure}
-
-As the satellite orbits, it collects light reflected from a strip of the Earth's surface. This light is passed to either the Visible and Near-Infra-Red (VNIR) detectors or the Short Wave Infra-Red (SWIR) detectors, which measure the reflected intensity in one of 13 different spectral bands (filters). The filters have been chosen to be sensitive to specific surface properties of interest, for example showing reflected light from vegetation, or from clouds. You can find some discussion of the filters used at this 
-\href{https://gisgeography.com/sentinel-2-bands-combinations}{link}.
-
-
-The European Space Agency provides a large number of tools to interact with Sentinel data, in particular through the \href{https://browser.dataspace.copernicus.eu}{Copernicus Browser}. As Sentinel data are quite large, it is often easier to work with them in the cloud, rather than downloading them to a local machine. However, for this exercise we will work on a simple analysis of a downloaded subset of Sentinel data.
-On Brightspace you have been provided with ``Level 2A'' data products from Sentinel-2. These are bottom of atmosphere reflectances in cartographic geometry, in  other words they have been corrected for the effects of atmospheric absorption, and mapped onto a flat surface. The resolution of these images will vary between 10 amd 60-m depending on the wavelength in question.
-
-The images have been taken of the 
-\href{https://en.wikipedia.org/wiki/Hunga_Tonga%E2%80%93Hunga_Ha%CA%BBapai}{Hunga Tonga–Hunga Ha'apai} volcano that has erupted over the past few decades, forming new islands in the South Pacific. 
-Your task is to use these, along with white light images from Google Earth to understand the changes in size and surface properties of this island.
-
-
-\subsection{Assignment}
-\begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Exercises]
-%[width=\linewidth, sharp corners=all, colback=white!95!black]
-
-
-\begin{enumerate}
-    \item Read in the images you have been provided with into numpy arrays. The ``PIL'' package can help with this.
-    \item Using the white light images, measure the area of the island as a function of time. A scale bar is provided in the corner of each image.
-    \item Within the Sentinel directory are several pre-generated products such as NDVI, NDWI etc. Using these, make a plot of the area covered in vegetation as a function of time.
-    \item You have also been provided with the images that are used to make NDVI, NDWI etc (these are the files that have the suffix ``raw''. Use these to make your own NDWI and NDVI. How do these compare to the ones you have been provided with?
-\end{enumerate}
-
-
-
-\end{tcolorbox} 
-¯
-
-%from PIL import Image
-%>>> im = Image.open('a_image.tif')
-%>>> im.show()
-
-
-To understand the Sentinel data products, you will need to consult the extensive online \href{https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html}{documentation}
-% \section{Assignment}
+\section{SENTINEL-2 images}
 
 \chapter{High energy detectors}
 
@@ -1765,7 +1315,7 @@ In order to efficiently detect \textgamma-ray emissions from astrophysical sourc
 
 In this lab you will calibrate and characterize different \textgamma-ray detectors. Each type has flown on past and present \textgamma-ray astronomy missions. You will examine the behavior of these detectors and write a report discussing their performance and suitability for different space missions.
 
-The experiments you do will follow the pre-flight tests performed on the detectors for the Fermi Burst Alert Telescope, documented in Bissaldi et al. (2009). You should read this paper, which can be found on BrightSpace. 
+The experiments you do will follow the pre-flight tests performed ont he detectors for the Fermi Burst Alert Telescope, documented in Bissaldi et al. (2009). You should read this paper, which can be found on BrightSpace. 
 
 You will be assessed based on your code, which is to be submitted to GitHub, and your final report, which is to be no less than 5 pages and no more than 10 pages including tables and figures. Your final report should include both a presentation of your results and a discussion about the characterization of the detectors and their suitability for space missions.
 
@@ -2013,10 +1563,7 @@ Your tasks are to provide (for each detector):
 \item code to characterize off-axis response (change in FWHM and peak height) as a function of angle.
 \end{itemize}
 
-
 These codes should be part of a working data analysis pipeline, so it is important to ensure they all communicate well with each other and function as part of a whole.
-
-
 
 \end{tcolorbox} 
 % \begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Primary Summary]
@@ -2039,20 +1586,10 @@ These codes should be part of a working data analysis pipeline, so it is importa
 
 Once you have completed your coding and analysis, you will have one final task: comparing your results. This additionally assumes that you have submitted your (functioning!) code to GitHub. Each group will take the results from all other groups and produce a resolution vs energy plot from all of the data. It will be up to the groups and the class to coordinate on how to make this happen.
 
-\begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Primary Summary]
-%[width=\linewidth, sharp corners=all, colback=white!95!black]
-Your final task is to provide a brief (10 pg)
-\begin{itemize}
-\item Report - brief overview comparing your results to others
-\item Discuss which detectors are useful for which type of mission
-\end{itemize}
-\end{tcolorbox} 
-
-
 \section{Addendum: Building a Pipeline}
 \label{sec:he-addendum}
 
-The easiest way to build a data analysis pipeline is to first get working components for each section of your analysis, testing these individually (in Jupyter notebooks, for example) before putting them all together. A good approach would be to create separate Python files for each of the important pieces of your workflow: for example, your calibration code may be in \verb|calibration.py|, your resolution code in \verb|resolution.py|, and so on. You may even take it further and build your pipeline with classes. As discussed in the Python section, you can exploit {relative imports} here and use a module like \verb|sys| or \verb|argparse| to control command-line arguments.
+The easiest way to build a data analysis pipeline is to first get working components for each section of your analysis, testing these individually before putting them all together. A good approach would be to create separate Python files for each of the important pieces of your workflow: for example, your calibration code may be in \verb|calibration.py|, your resolution code in \verb|resolution.py|, and so on. You may even take it further and bundle all the equations you want to fit into their own file as well. As discussed in the Python section, you can exploit {relative imports} here and use a module like \verb|sys| or \verb|argparse| to control command-line arguments.
 
 It is not advisable to write a ``do it all at once'' pipeline, but you should also resist the urge to allow a user too many options. Sometimes it is helpful to think in terms of command-line arguments to inform your workflow. For example, we may construct a pipeline using the \verb|argparse| module where the user can interact with it like so:
 
@@ -2061,7 +1598,7 @@ $ python pipeline.py --detector BGO
     --calibrate
 \end{lstlisting}
 
-Our logic here might be that we always begin with calling \verb|pipeline.py| and pass specific arguments to it; in this case there are the arguments \verb|--detector <DETECTOR_NAME>| and \verb|--calibrate|. As such, our pipeline has a clear and simple interface: it needs a detector and a function and performs that task only. Of course, we may need to save the results of the calibration before running any of the other functions, but that is easy to implement.\footnote{Another, perhaps more complicated option, is to have your pipeline load a user-defined configuration file and parse all the necessary data from that. A few popular and modern config file formats are the \texttt{.JSON} and \texttt{.YAML} formats.} 
+Our logic here might be that we always begin with calling \verb|pipeline.py| and pass specific arguments to it; in this case there are the arguments \verb|--detector <DETECTOR_NAME>| and \verb|--calibrate|. As such, our pipeline has a clear and simple interface: it needs a detector and a function and performs that task only. Of course, we may need to save the results of the calibration before running any of the other functions, but that is easy to implement. 
 
 It is also important to note that you should avoid under all circumstances using fixed path names, especially if others will be running your code. While using GitHub guarantees that all team members working on the code will be using the same directory structure, the team members may have very different operating systems and thus very different path names. You can circumvent this issue with either the \verb|os| module or the \verb|pathlib| module, and by using relative paths rather than absolute paths.
 
@@ -2114,7 +1651,7 @@ It is also important to note that you should avoid under all circumstances using
 % This means if the second person attempts to run the original code, it will not work. 
 
 \chapter{AMSATs}
-\label{chap:amsats}
+
 
 \section{Introduction to AMSATs}
 
@@ -2212,68 +1749,7 @@ All going well you are now connected to the AMSAT and your terminal should show 
 
 \newthought{WiFi Connection}
 
-As you will have noticed, connecting over a USB can be cumbersome and, at times, a bit temperamental.\footnote{It is especially fun if we are unable to find a USB cable to that transmits both data \textit{and} power.} It is also quite limiting for any experiments involving movement. Thankfully each AMSAT device is built with a Raspberry Pi Zero W, which is Wi-Fi capable, but we need to figure out a way to connect without using a monitor.
-
-There are a few options here. The first and easiest option is to simply create a file called \texttt{wpa\_supplicant.conf}, which is simply a configuration file that we place on the Raspberry Pi that will be used to automatically log-in to the WiFi network specified. We can create this file by simply opening up a text editor (like Notepad on Windows). This file must have the following contents:
-
-\begin{figure*}
-\begin{lstlisting}[backgroundcolor=\color{lightgray}]
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-country=IE
-update_config=1
-
-network={
-  ssid="NETWORK_NAME"
-  psk="PASSWORD"
-  key_mgmt=WPA-PSK
-}
-\end{lstlisting}
-\end{figure*}
-
-\noindent where were replace \texttt{ssid} and \texttt{psk} with the appropriate values. Once this is created, we can place it on the Raspberry Pi SD card. After making sure your AMSAT is safely powered down and disconnected, remove the SD card, place it into a USB card reader, and plug it into one of the lab machines. If using the Linux machines (recommended) you should see the SD card mounted on the left hand panel; if you cannot find this ask one of the demonstrators. We want to open the \texttt{boot} folder and move the \texttt{wpa\_supplicant.conf} file there. Safely eject the SD card and re-insert it into the AMSAT. 
-
-If all goes well, when the AMSAT boots up it will automatically connect to the specified network. You can then connect your laptop to the same network (this is important) and access the AMSAT through wireless SSH. 
-
-The second option is to SSH into the AMSAT using the USB/Ethernet method and access the Raspberry Pi configuration tool:
-
-\begin{lstlisting}[backgroundcolor=\color{lightgray}]
-$ sudo raspi-config
-\end{lstlisting}
-
-This will bring up a window as seen in Figure~\ref{fig:raspiconfig}. As this is a \textit{terminal} user interface (as opposed to graphical) we navigate using the keyboard, not the mouse. Under ``System Options'' we can configure the Wireless LAN, providing the network name (SSID) and password. Alternatively this can be done in one line from the terminal:\footnote{For more information see \href{https://www.raspberrypi.com/documentation/computers/configuration.html}{the Raspberry Pi documentation.}}
-
-\begin{lstlisting}[backgroundcolor=\color{lightgray}, breaklines=true]
-sudo raspi-config nonint do_wifi_ssid_passphrase SSID PASSWORD 
-\end{lstlisting}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\linewidth]{graphics/amsat_images/raspiconfig.png}
-    \caption{A screenshot of the \texttt{raspi-config} interface. From here you can adjust several features of the Raspberry Pi.}
-    \label{fig:raspiconfig}
-\end{figure}
-
-The third option also requires that we establish an SSH connection first. This method also requires that we create the \texttt{wpa\_supplicant.conf} file, and move it to the appropriate directory. We can create this file exactly as above (i.e. using a laptop or one of the lab computers) and use \texttt{sftp} to transfer the file to the AMSAT (more on this method below), or we can create the file on the AMSAT directly and move it there. If you choose to create this on the AMSAT, you can type in:
-
-\begin{lstlisting}[backgroundcolor=\color{lightgray}]
-$ nano wpa_supplicant.conf
-\end{lstlisting}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.9\linewidth]{graphics/amsat_images/image07.png}
-    \caption{The \texttt{nano} text editor interface.}
-    \label{fig:nanoeditor}
-\end{figure}
-
-This will open the \texttt{nano} text editor as seen in Figure~\ref{fig:nanoeditor}. When you have typed out the contents as above, press \texttt{ctrl+o}, then \texttt{Enter} to confirm the name of the file, and \texttt{ctrl+x} to exit the editor. Now we move the file to the appropriate directory:
-
-\begin{lstlisting}[backgroundcolor=\color{lightgray}, breaklines=true]
-$ sudo mv wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
-\end{lstlisting}\marginnote[-7.6mm]{The \texttt{sudo} is important here.}
-
-The latter two options are probably the most complicated; it would be easiest to just create the file on a local computer and move it to the AMSAT's SD card. 
-% \textcolor{red}{To be written. For this one Andrew will need to set up the WiFi hotspot (which does not connect to the internet) so the students can connect over that. Necessary for the exercises with rotation!}
+To be written. For this one Andrew will need to set up the WiFi hotspot (which does not connect to the internet) so the students can connect over that. Necessary for the exercises with rotation!
 
 \section{Reading sensors}
 
@@ -2353,7 +1829,7 @@ $ sftp USER@REMOTE:PATH/TO/SOURCE /PATH/TO/DESTINATION
 \end{lstlisting}
 Let us assume we saved the output of \verb|cubesatsim| to a file called \verb|output.txt| in the \verb|CubeSatSim| directory, and we want to move this file to the \verb|Documents/AMSAT/| folder on our lab computer.
 \begin{lstlisting}[backgroundcolor=\color{lightgray}, breaklines=true]
-$ sftp pi@cubesatsim1.local:CubeSatSim/output.txt ~/Documents/AMSAT/output.txt
+$ sftp pi@cubesatsim1.local:CubeSatSim/output.txt ~/Documents/AMSAT/
 \end{lstlisting}
 If we have typed everything correctly we will be prompted for the AMSAT password and the file will be copied to our \verb|AMSAT| folder. Try this yourself, replacing \verb|output.txt| with whatever filename you chose when using the \verb|./cubesatsim &> FILE| command.
 
@@ -2397,7 +1873,7 @@ if "Some string" in line_of_text:
 
 \section{Exercises}
 
-In our AMSAT practicals, we will be doing the bulk of our work in Jupyter Notebooks. On each lab machine we have provided a notebook which will provide you with an introduction to the AMSAT and how to interface with it using Python; a similar notebook can be found on BrightSpaces. You will additionally perform the following experiments:
+In our AMSAT practicals, we will be working through several Jupyter Notebooks, the first notebook of which will provide you with an introduction to the AMSAT and how to interface with it using Python. You will additionally perform the following experiments:
 
 \begin{tcolorbox}[sharp corners=all, colback=white!75!green]
 %[width=\linewidth, sharp corners=all, colback=white!95!black]
