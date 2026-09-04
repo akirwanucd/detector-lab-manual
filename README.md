@@ -14,7 +14,7 @@ chmod +x install-deps.sh
 If you don't have a LaTeX environment at all, you can install `texlive` through your favorite package manager, or if you don't want a million packages you can install [TinyTeX](https://yihui.org/tinyex/):
 
 ```bash
-wget -q0- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+wget -qO- "https://tinytex.yihui.org/install-bin-unix.sh" | sh
 ```
 
 and then run `install-deps.sh`.
