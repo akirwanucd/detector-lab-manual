@@ -185,14 +185,16 @@ Laboratory}
 %\par\smallcaps{tufte-latex.googlecode.com}
 
 \smallcaps{Authors: \\
-                    Morgan Fraser (morgan.fraser@ucd.ie, UCD School of Physics)\\
                     Andrew Kirwan (andrew.kirwan1@ucd.ie, UCD School of Physics)\\
+                    Morgan Fraser (morgan.fraser@ucd.ie, UCD School of Physics)\\
                     Robert Jeffrey (University of Southampton School of Physics \& Astronomy)}\\
+                    Sheila McBreen (sheila.mcbreen@ucd.ie, UCD School of Physics)\\
 \smallskip
 \smallcaps{version 0.1, 28 May 2025}\\
 \smallcaps{version 1.0, 7 Sept 2025}\\
 \smallcaps{version 2.0, 25 Sept 2025}\\
 \smallcaps{version 3.0, 12 Nov 2025}\\
+\smallcaps{version 4.0, 1 Sept 2026}\\
 
 
 
@@ -235,62 +237,62 @@ The module has three primary components:
 \newpage
 
 % \end{fullwidth}
-\section{Course schedule}
-
-% order is python > optical > he detectors > amsat. Need to update table below
-\begin{table}
-    \centering
-    \begin{tabular}{c||cl}
-    \hline\hline
-        W1 & Mon 8th Sept & Introduction to Python \\
-           & Tue 9th      & Introduction to Python \\
-           \hline
-        W2 & Mon 15th     & Introduction to Python \\
-           & Tues 16th    & GitHub\\
-           \hline
-        W3 & Mon 22nd     & Virtual environments\\
-           & Tues 23rd    & ChatGPT\\
-           \hline
-        W4 & Mon 29th     & Optical detectors lecture\\
-           & Tues 30th    & HST data exercise \\
-           \hline
-        W5 & Mon 6th Oct  & HST data exercise\\
-           & Tues 7th     & Sentinel-2 exercise\\
-           \hline
-        W6 & Mon  13th    & Sentinel-2 exercise\\
-            & Tues 14th    & High energy detectors lecture\\
-           \hline
-        W7 & Mon 20th     & Detector 1 experiment\\
-           & Tues 21st    & Detector 1 experiment\\
-           \hline
-        W8 & Mon 27th     & Public holiday\\
-           & Tues 28th    & Detector 1 experiment\\
-           \hline
-        W9 & Mon 3rd Nov  & Detector 2 experiment\\
-           & Tues 4th     & Detector 2 experiment\\
-           \hline
-        W10 & Mon 10th    & Detector 2 experiment\\
-           & Tues 11st    & Merge detector results\\
-        W11 & Mon 17th    & AMSAT - introduction\\
-           & Tues 18th    & AMSAT - connecting \\
-           \hline
-        W12 & Mon 24th    & AMSAT experiments\\
-           & Tues 25th    & AMSAT experiments\\
-           \hline\hline
-        % W7 & Mon 20th     & Detector 1 experiment\\
-        %    & Tues 21st    & Detector 1 experiment\\
-        %    \hline
-        % W8 & Mon 27th     & Public holiday\\
-        %    & Tues 28th    & Detector 1 experiment\\
-        %    \hline
-        % W9 & Mon 3rd Nov  & Detector 2 experiment\\
-        %    & Tues 4th     & Detector 2 experiment\\
-        %    \hline
-        % W10 & Mon 10th    & Detector 2 experiment\\
-        %    & Tues 11st    & Merge detector results\\
-    \end{tabular}
-    \label{tab:my_label}
-\end{table}
+%\section{Course schedule}
+%
+%% order is python > optical > he detectors > amsat. Need to update table below
+%\begin{table}
+%    \centering
+%    \begin{tabular}{c||cl}
+%    \hline\hline
+%        W1 & Mon 8th Sept & Introduction to Python \\
+%           & Tue 9th      & Introduction to Python \\
+%           \hline
+%        W2 & Mon 15th     & Introduction to Python \\
+%           & Tues 16th    & GitHub\\
+%           \hline
+%        W3 & Mon 22nd     & Virtual environments\\
+%           & Tues 23rd    & ChatGPT\\
+%           \hline
+%        W4 & Mon 29th     & Optical detectors lecture\\
+%           & Tues 30th    & HST data exercise \\
+%           \hline
+%        W5 & Mon 6th Oct  & HST data exercise\\
+%           & Tues 7th     & Sentinel-2 exercise\\
+%           \hline
+%        W6 & Mon  13th    & Sentinel-2 exercise\\
+%            & Tues 14th    & High energy detectors lecture\\
+%           \hline
+%        W7 & Mon 20th     & Detector 1 experiment\\
+%           & Tues 21st    & Detector 1 experiment\\
+%           \hline
+%        W8 & Mon 27th     & Public holiday\\
+%           & Tues 28th    & Detector 1 experiment\\
+%           \hline
+%        W9 & Mon 3rd Nov  & Detector 2 experiment\\
+%           & Tues 4th     & Detector 2 experiment\\
+%           \hline
+%        W10 & Mon 10th    & Detector 2 experiment\\
+%           & Tues 11st    & Merge detector results\\
+%        W11 & Mon 17th    & AMSAT - introduction\\
+%           & Tues 18th    & AMSAT - connecting \\
+%           \hline
+%        W12 & Mon 24th    & AMSAT experiments\\
+%           & Tues 25th    & AMSAT experiments\\
+%           \hline\hline
+%        % W7 & Mon 20th     & Detector 1 experiment\\
+%        %    & Tues 21st    & Detector 1 experiment\\
+%        %    \hline
+%        % W8 & Mon 27th     & Public holiday\\
+%        %    & Tues 28th    & Detector 1 experiment\\
+%        %    \hline
+%        % W9 & Mon 3rd Nov  & Detector 2 experiment\\
+%        %    & Tues 4th     & Detector 2 experiment\\
+%        %    \hline
+%        % W10 & Mon 10th    & Detector 2 experiment\\
+%        %    & Tues 11st    & Merge detector results\\
+%    \end{tabular}
+%    \label{tab:my_label}
+%\end{table}
 
 
 
@@ -1276,7 +1278,7 @@ It is also important to remember that while LLMs have been trained on a vast cor
 
 The guidance above pertains to using LLMs to write code. The advice for writing text is quite different. It is important to keep in mind that LLMs work by forming associations between tokens and patterns. As they do not have any understanding of what they are producing, it is inherently risky to use them to write introductions, or indeed any other parts of a report or document. While code produced by an LLM can be tested, and we can satisfy that its outputs are correct, we cannot do such a test for, say, a description of how a Hall thruster works.
 
-Aside from the major problem with using LLMs for writing, namely that it has no {\it understanding} of what it outputs\footnote{See \href{https://link.springer.com/article/10.1007/s10676-024-09775-5}{this article} for an entertaining discussion on this point.}, there are other more subtle downsides:
+Aside from the major problem with using LLMs for writing, namely that it has no {\it understanding} of what it outputs\footnote{See \href{https://link.springer.com/article/10.1007/s10676-024-09775-5}{this article} and \href{https://link.springer.com/article/10.1007/s10676-025-09828-3}{this response} for an entertaining discussion on this point.}, there are other more subtle downsides:
 
 \begin{itemize}
     \item  Over the course of your MSc, we want you to acquire a broad range of skills relevant to the space sector. One of the best ways of learning information and reinforcing it is by explaining to others, whether in the form of an oral presentation or writing a report or essay. Using LLMs to summarize a topic negates this - even if you feel you know what you are writing about, you are more likely to retain this information into the future by writing it down yourself.
