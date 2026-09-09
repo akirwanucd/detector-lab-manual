@@ -196,8 +196,6 @@ Laboratory}
 \smallcaps{version 3.0, 12 Nov 2025}\\
 \smallcaps{version 4.0, 1 Sept 2026}\\
 
-
-
 \end{fullwidth}
 
 % r.5 contents
@@ -1600,12 +1598,19 @@ While it is not part of the submittable assessment, you should also stack the sc
 
 \section{Sentinel-2 images}
 
-The Sentinel-2B satellite (Fig. \ref{fig:sentinel}) launched in 2017 (it was joined by the identical Sentinel-2C in 2024). Each of the Sentinel-2 satellites caries a single instrument, the ``Multi-Spectral Imager''. You can read the detailed of how the MSI works \href{https://sentiwiki.copernicus.eu/web/s2-mission#S2-Mission-MSI-Instrument}{here}, but in brief it uses a ``push-broom'' approach to scan a 290~km-wide swathe of the Earth's surface. This push-broom method is similar to how a photocopier or scanner works: as the satellite moves through its orbit, it scans a region of the earth beneath it and updates its detector register as it goes. 
+The Sentinel-2B satellite (Fig. \ref{fig:sentinel}) was launched in 2017, and was later joined by the identical Sentinel-2C in 2024. Each of the Sentinel-2 satellites caries a single instrument, the ``Multi-Spectral Imager''. You can read the detailed of how the MSI works \href{https://sentiwiki.copernicus.eu/web/s2-mission#S2-Mission-MSI-Instrument}{here}, but in brief it uses a ``push-broom'' approach to scan a 290~km-wide swathe of the Earth's surface. This push-broom method is similar to how a photocopier or scanner works: as the satellite moves through its orbit, it scans a region of the earth beneath it and updates its detector register as it goes. This is seen in Figure~\ref{fig:pushbroom}.
+
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{graphics/Mapping_in_colour_pillars.png}
     \caption{The Sentinel-2 satellite\label{fig:sentinel}}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{graphics/ccds/push-broom-scanner.png}
+  \caption{A schematic of a push-broom system on a satellite. The sensor moves over a swath or patch of land, depicted by the horizontal black bars, as it moves along its flight path. The detector register is updated for each patch passed over. Image adapted from \href{https://doi.org/10.3390/rs17030433}{Du, et al (2025)}\label{fig:pushbroom}.}
 \end{figure}
 
 As the satellite orbits, it collects light reflected from a strip of the Earth's surface. This light is passed to either the Visible and Near-Infra-Red (VNIR) detectors or the Short Wave Infra-Red (SWIR) detectors, which measure the reflected intensity in one of 13 different spectral bands (filters). The filters have been chosen to be sensitive to specific surface properties of interest, for example showing reflected light from vegetation, or from clouds. You can find some discussion of the filters used at this 
@@ -1638,6 +1643,14 @@ As the satellite orbits, it collects light reflected from a strip of the Earth's
 
 The European Space Agency provides a large number of tools to interact with Sentinel data, in particular through the \href{https://browser.dataspace.copernicus.eu}{Copernicus Browser}. As Sentinel data are quite large, it is often easier to work with them in the cloud, rather than downloading them to a local machine. However, for this exercise we will work on a simple analysis of a downloaded subset of Sentinel data.
 On Brightspace you have been provided with ``Level 2A'' data products from Sentinel-2. These are bottom of atmosphere reflectances in cartographic geometry, in  other words they have been corrected for the effects of atmospheric absorption, and mapped onto a flat surface. The resolution of these images will vary between 10 amd 60-m depending on the wavelength in question.
+
+\subsection{TIFF files}
+
+  Most typically we might see data delivered with the extensions \texttt{.tiff} or \texttt{.jp2}, however for our purposes we will be concerned with only the former. The so-called Tag Image File Format (TIFF) is particularly useful for storing raster graphics images, and like FITS files these can store data with a large bit-depth (typically 16 bit). Also similar to FITS files, TIFF files can actually contain seveeral images or \texttt{subfiles}, and support the assignment of multiple tags to store the file's metadata. 
+
+  In the context of earth observations, a metadata standard that we will see applied to our Sentinel-2 data is called \href{https://www.earthdata.nasa.gov/about/esdis/esco/standards-practices/geotiff}{GeoTIFF}, which was developed as a way to process and store georeferenced raster images. This allows us to extract longitude and latitude values from our data, assuming geometric calibration was performed in the pipeline. For our purposes, we will be dealing with geometrically and radiometrically calibrated data, so we will not need to worry about it.
+
+\subsection{Assignment}
 
 The images have been taken of the 
 \href{https://en.wikipedia.org/wiki/Hunga_Tonga%E2%80%93Hunga_Ha%CA%BBapai}{Hunga Tonga–Hunga Ha'apai} volcano that has erupted over the past few decades, forming new islands in the South Pacific. 
