@@ -1525,7 +1525,7 @@ The predecessor to the WFC3 was the Wide Field and Planetary Camera 2 (WFPC2), w
 \end{figure}
 
 \subsection{FITS files}
-Like nearly all digital astronomical data, the data produced by these instruments are stored in standardized files which follow the Flexible Image Transport System (FITS) protocol. FITS files store their data in a multi-dimensional plain-text form as "header data units" or HDUs and combine them into an HDU list. Each HDU is stored as an extension and would contain the physical information (counts, fluxes, etc.; the numerical data) as well as a header that contains all the metadata about the physical information. A visualization of this can be seen in Figure~\ref{fig:fits-format}.
+Like nearly all digital astronomical data, the data produced by these instruments are stored in standardized files which follow the Flexible Image Transport System (FITS) protocol. FITS files store their data in a monochromatic, multi-dimensional plain-text form as "header data units" or HDUs and combine them into an HDU list. Each HDU is stored as an extension and would contain the physical information (counts, fluxes, etc.; the numerical data) as well as a header that contains all the metadata about the physical information. A visualization of this can be seen in Figure~\ref{fig:fits-format}.
 
 \begin{marginfigure}
     \centering
@@ -1534,6 +1534,8 @@ Like nearly all digital astronomical data, the data produced by these instrument
 \end{marginfigure}
 
 Typically we have a \verb|PRIMARY| HDU which is a metadata header that contains all the information about the telescope, the observation ID, observation conditions, and other parameters that describe the overall data. The first extension is typically a \verb|SCI| HDU, which would have the image itself as a \verb|DATA| card and more metadata as a \verb|HEADER| card. There are also other extensions that contain, for example, uncertainties, data quality, and so on, but for 2D images these two are the most common. In the workshop notebooks you will learn how to access these files and their data using Python.
+
+FITS files support a large bit depth, which means the tonal resolution (that is, the ability to distinguish between similar brightness levels) delivered can be very fine. Typical phone cameras may store 8-bit data, so every pixel is capable of storing 256 different values representing the brightness; the data produced by astronomical cameras are 16-bita resolution so each pixel can actually store 65,536 unique values. This kind of tonal resolution allows astronomerys to capture both incredibly bright and incredibly faint details of an object in a single image. 
 
 \subsection{Photometry}
 
@@ -1646,9 +1648,9 @@ On Brightspace you have been provided with ``Level 2A'' data products from Senti
 
 \subsection{TIFF files}
 
-  Most typically we might see data delivered with the extensions \texttt{.tiff} or \texttt{.jp2}, however for our purposes we will be concerned with only the former. The so-called Tag Image File Format (TIFF) is particularly useful for storing raster graphics images, and like FITS files these can store data with a large bit-depth (typically 16 bit). Also similar to FITS files, TIFF files can actually contain seveeral images or \texttt{subfiles}, and support the assignment of multiple tags to store the file's metadata. 
+  Most typically we might see data delivered with the extensions \texttt{.tiff} or \texttt{.jp2}, however for our purposes we will be concerned with only the former. The so-called Tag Image File Format (TIFF) is particularly useful for storing raster graphics images, and like FITS files these can store data with a large bit-depth (typically up to 16 bit) so we can obtain images with high tonal resolution. Also similar to FITS files, TIFF files can actually contain several images or \texttt{subfiles}, and support the assignment of multiple tags to store the file's metadata. 
 
-  In the context of earth observations, a metadata standard that we will see applied to our Sentinel-2 data is called \href{https://www.earthdata.nasa.gov/about/esdis/esco/standards-practices/geotiff}{GeoTIFF}, which was developed as a way to process and store georeferenced raster images. This allows us to extract longitude and latitude values from our data, assuming geometric calibration was performed in the pipeline. For our purposes, we will be dealing with geometrically and radiometrically calibrated data, so we will not need to worry about it.
+  In the context of earth observations, a metadata standard that we will see applied to our Sentinel-2 data is called \href{https://www.earthdata.nasa.gov/about/esdis/esco/standards-practices/geotiff}{GeoTIFF}, which was developed as a way to process and store georeferenced raster images. This allows us to extract longitude and latitude values from our data, assuming geometric calibration was performed in the pipeline. In our workshop we will be dealing with geometrically and radiometrically calibrated data, so we will not need to worry about the calibration.
 
 \subsection{Assignment}
 
@@ -1656,11 +1658,8 @@ The images have been taken of the
 \href{https://en.wikipedia.org/wiki/Hunga_Tonga%E2%80%93Hunga_Ha%CA%BBapai}{Hunga Tonga–Hunga Ha'apai} volcano that has erupted over the past few decades, forming new islands in the South Pacific. 
 Your task is to use these, along with white light images from Google Earth to understand the changes in size and surface properties of this island.
 
-
-\subsection{Assignment}
 \begin{tcolorbox}[sharp corners=all, colback=white!75!green, title=Exercises]
 %[width=\linewidth, sharp corners=all, colback=white!95!black]
-
 
 \begin{enumerate}
   \item Read in the images you have been provided with into numpy arrays. The \texttt{PIL} or \texttt{rasterio} packages can help with this.
